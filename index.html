@@ -4,388 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Team Roping Videos – The #1 Team Roping Video Directory</title>
-<meta name="description" content="The best team roping videos on YouTube. Training, NFR highlights, jackpots, and more. Ranked and curated for ropers.">
+<meta name="description" content="The best team roping videos on YouTube. NFR, BFI, Rancho Rio, training, jackpots and more. Ranked and curated for ropers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --brown: #5C3A1E;
-  --gold: #C8922A;
-  --gold2: #E8B84B;
-  --red: #8B1A1A;
-  --bg: #F5F0E8;
-  --white: #FFFFFF;
-  --text: #1a1a1a;
-  --muted: #666;
-  --border: #D9CFC0;
-  --card-bg: #FFFFFF;
-  --header-bg: #1a0f00;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: 'Open Sans', sans-serif; font-size: 15px; }
-
-/* HEADER */
-.site-header {
-  background: var(--header-bg);
-  padding: 0 16px;
-  border-bottom: 3px solid var(--gold);
-}
-.header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0 6px;
-  border-bottom: 1px solid rgba(200,146,42,0.25);
-}
-.sponsor-tag {
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-.sponsor-tag a { color: var(--gold); text-decoration: none; }
-.header-main { padding: 14px 0 16px; text-align: center; }
-.site-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 1px;
-  line-height: 1.1;
-}
-.site-title span { color: var(--gold); }
-.site-tagline {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.55);
-  margin-top: 4px;
-  letter-spacing: 0.5px;
-}
-
-/* STATS BAR */
-.stats-bar {
-  background: var(--brown);
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  padding: 10px 16px;
-}
-.stat-item { text-align: center; }
-.stat-num {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--gold);
-  line-height: 1;
-}
-.stat-label { font-size: 0.6rem; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; }
-
-/* AD BANNER */
-.ad-banner {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 16px;
-  text-align: center;
-}
-.ad-banner a img { max-width: 100%; height: auto; max-height: 60px; }
-
-/* CATEGORY CHIPS */
-.category-wrap {
-  background: var(--white);
-  border-bottom: 2px solid var(--border);
-  padding: 10px 12px;
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.category-wrap::-webkit-scrollbar { display: none; }
-.chip {
-  display: inline-block;
-  padding: 6px 14px;
-  margin-right: 6px;
-  border-radius: 20px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.2s;
-  background: var(--bg);
-  color: var(--brown);
-  border-color: var(--border);
-  white-space: nowrap;
-}
-.chip:hover { border-color: var(--gold); color: var(--gold); }
-.chip.active { background: var(--gold); color: #fff; border-color: var(--gold); }
-
-/* SEARCH */
-.search-wrap {
-  padding: 12px 16px;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
-.search-input {
-  width: 100%;
-  padding: 10px 14px;
-  border: 2px solid var(--border);
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-family: 'Open Sans', sans-serif;
-  background: var(--white);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s;
-}
-.search-input:focus { border-color: var(--gold); }
-
-/* SECTION TITLE */
-.section-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--brown);
-  padding: 14px 16px 4px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-/* VIDEO GRID */
-.video-grid {
-  padding: 8px 12px 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-@media (min-width: 600px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 900px) { .video-grid { grid-template-columns: repeat(4, 1fr); } }
-
-/* VIDEO CARD */
-.video-card {
-  background: var(--card-bg);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  display: flex;
-  flex-direction: column;
-}
-.video-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.13); }
-.thumb-wrap { position: relative; padding-top: 56.25%; background: #111; }
-.thumb-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.play-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.15);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.video-card:hover .play-overlay { opacity: 1; }
-.play-btn {
-  width: 40px; height: 40px;
-  background: rgba(200,146,42,0.92);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.play-btn::after {
-  content: '';
-  border-style: solid;
-  border-width: 7px 0 7px 14px;
-  border-color: transparent transparent transparent #fff;
-  margin-left: 3px;
-}
-.rank-badge {
-  position: absolute;
-  top: 6px; left: 6px;
-  background: var(--gold);
-  color: #fff;
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 2px 7px;
-  border-radius: 3px;
-  line-height: 1.4;
-}
-.rank-badge.top3 { background: var(--red); }
-.card-body { padding: 8px 10px 10px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
-.card-title {
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--text);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.card-channel { font-size: 0.68rem; color: var(--muted); }
-.card-meta {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 2px;
-}
-.meta-tag {
-  font-size: 0.6rem;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-.tag-Highlight { background: #e8f5e9; color: #2e7d32; }
-.tag-Training  { background: #e3f0ff; color: #1565c0; }
-.tag-Event     { background: #fce8e8; color: #c62828; }
-.tag-Analysis  { background: #fff8e1; color: #f57f17; }
-.card-views { font-size: 0.68rem; color: var(--muted); margin-top: auto; padding-top: 4px; }
-
-/* NO RESULTS */
-.no-results {
-  text-align: center;
-  padding: 48px 24px;
-  color: var(--muted);
-  font-size: 0.9rem;
-  grid-column: 1 / -1;
-}
-
-/* MODAL */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-.modal-overlay.open { display: flex; }
-.modal-box {
-  background: var(--white);
-  border-radius: 10px;
-  width: 100%;
-  max-width: 680px;
-  overflow: hidden;
-  position: relative;
-}
-.modal-video { position: relative; padding-top: 56.25%; background: #000; }
-.modal-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
-.modal-info { padding: 14px 16px; }
-.modal-title { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; line-height: 1.3; margin-bottom: 6px; }
-.modal-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-.modal-channel { font-size: 0.78rem; color: var(--muted); }
-.modal-close {
-  position: absolute;
-  top: 10px; right: 10px;
-  width: 32px; height: 32px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-.modal-yt-link {
-  display: inline-block;
-  margin-top: 10px;
-  background: #FF0000;
-  color: #fff;
-  padding: 7px 16px;
-  border-radius: 4px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* FOOTER */
-footer {
-  background: var(--header-bg);
-  color: rgba(255,255,255,0.5);
-  text-align: center;
-  padding: 24px 16px;
-  font-size: 0.72rem;
-  line-height: 1.8;
-  border-top: 3px solid var(--gold);
-  margin-top: 24px;
-}
-footer a { color: var(--gold); text-decoration: none; }
-.footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-bottom: 12px; }
-.footer-links a { font-size: 0.72rem; }
+:root{--brown:#5C3A1E;--gold:#C8922A;--gold2:#E8B84B;--red:#8B1A1A;--bg:#F5F0E8;--white:#FFFFFF;--text:#1a1a1a;--muted:#666;--border:#D9CFC0;--card-bg:#FFFFFF;--header-bg:#1a0f00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;font-size:15px}
+.site-header{background:var(--header-bg);padding:0 16px;border-bottom:3px solid var(--gold)}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 6px;border-bottom:1px solid rgba(200,146,42,0.25)}
+.sponsor-tag{font-size:.65rem;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase}
+.sponsor-tag a{color:var(--gold);text-decoration:none}
+.header-main{padding:14px 0 16px;text-align:center}
+.site-title{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--white);letter-spacing:1px;line-height:1.1}
+.site-title span{color:var(--gold)}
+.site-tagline{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:4px;letter-spacing:.5px}
+.stats-bar{background:var(--brown);display:flex;justify-content:center;gap:32px;padding:10px 16px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:600;color:var(--gold);line-height:1}
+.stat-label{font-size:.6rem;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase}
+.category-wrap{background:var(--white);border-bottom:2px solid var(--border);padding:10px 12px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.category-wrap::-webkit-scrollbar{display:none}
+.chip{display:inline-block;padding:6px 14px;margin-right:6px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:var(--bg);color:var(--brown);white-space:nowrap;transition:all .2s}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+.chip.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+.search-wrap{padding:12px 16px;background:var(--bg);border-bottom:1px solid var(--border)}
+.search-input{width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:6px;font-size:.9rem;font-family:'Open Sans',sans-serif;background:var(--white);color:var(--text);outline:none;transition:border-color .2s}
+.search-input:focus{border-color:var(--gold)}
+.section-title{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;color:var(--brown);padding:14px 16px 4px;letter-spacing:.5px;text-transform:uppercase}
+.video-grid{padding:8px 12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:600px){.video-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.video-grid{grid-template-columns:repeat(4,1fr)}}
+.video-card{background:var(--card-bg);border-radius:8px;overflow:hidden;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.07);cursor:pointer;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column}
+.video-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.13)}
+.thumb-wrap{position:relative;padding-top:56.25%;background:#111}
+.thumb-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.15);opacity:0;transition:opacity .2s}
+.video-card:hover .play-overlay{opacity:1}
+.play-btn{width:40px;height:40px;background:rgba(200,146,42,.92);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.play-btn::after{content:'';border-style:solid;border-width:7px 0 7px 14px;border-color:transparent transparent transparent #fff;margin-left:3px}
+.rank-badge{position:absolute;top:6px;left:6px;background:var(--gold);color:#fff;font-family:'Oswald',sans-serif;font-size:.7rem;font-weight:600;padding:2px 7px;border-radius:3px;line-height:1.4}
+.rank-badge.top3{background:var(--red)}
+.card-body{padding:8px 10px 10px;flex:1;display:flex;flex-direction:column;gap:4px}
+.card-title{font-size:.78rem;font-weight:600;line-height:1.35;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-channel{font-size:.68rem;color:var(--muted)}
+.card-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.meta-tag{font-size:.6rem;padding:2px 6px;border-radius:3px;font-weight:600;letter-spacing:.3px}
+.tag-Highlight{background:#e8f5e9;color:#2e7d32}
+.tag-Training{background:#e3f0ff;color:#1565c0}
+.tag-Event{background:#fce8e8;color:#c62828}
+.tag-Analysis{background:#fff8e1;color:#f57f17}
+.tag-RanchoRio{background:#f3e5f5;color:#6a1b9a}
+.tag-NFR{background:#fff3e0;color:#e65100}
+.tag-MajorRoping{background:#e8eaf6;color:#283593}
+.card-views{font-size:.68rem;color:var(--muted);margin-top:auto;padding-top:4px}
+.no-results{text-align:center;padding:48px 24px;color:var(--muted);font-size:.9rem;grid-column:1/-1}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--white);border-radius:10px;width:100%;max-width:680px;overflow:hidden;position:relative}
+.modal-video{position:relative;padding-top:56.25%;background:#000}
+.modal-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.modal-info{padding:14px 16px}
+.modal-title{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;line-height:1.3;margin-bottom:6px}
+.modal-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.modal-channel{font-size:.78rem;color:var(--muted)}
+.modal-close{position:absolute;top:10px;right:10px;width:32px;height:32px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10}
+.modal-yt-link{display:inline-block;margin-top:10px;background:#FF0000;color:#fff;padding:7px 16px;border-radius:4px;font-size:.78rem;font-weight:600;text-decoration:none}
+footer{background:var(--header-bg);color:rgba(255,255,255,.5);text-align:center;padding:24px 16px;font-size:.72rem;line-height:1.8;border-top:3px solid var(--gold);margin-top:24px}
+footer a{color:var(--gold);text-decoration:none}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-bottom:12px}
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
 <header class="site-header">
   <div class="header-top">
     <span class="sponsor-tag">Sponsored by <a href="https://bridleandbit.com" target="_blank">Bridle &amp; Bit</a> Magazine</span>
-    <span class="sponsor-tag" style="color:rgba(255,255,255,0.35);">teamropingvideos.com</span>
+    <span class="sponsor-tag" style="color:rgba(255,255,255,.35)">teamropingvideos.com</span>
   </div>
   <div class="header-main">
     <div class="site-title">Team Roping <span>Videos</span></div>
     <div class="site-tagline">The Best Team Roping Videos on YouTube — Ranked &amp; Curated</div>
   </div>
 </header>
-
-<!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">100</div><div class="stat-label">Top Videos</div></div>
-  <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Categories</div></div>
+  <div class="stat-item"><div class="stat-num">93</div><div class="stat-label">Top Videos</div></div>
+  <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Categories</div></div>
   <div class="stat-item"><div class="stat-num">2026</div><div class="stat-label">Updated</div></div>
 </div>
-
-<!-- CATEGORY CHIPS -->
 <div class="category-wrap">
-  <span class="chip active" onclick="filterCat('All', this)">All Videos</span>
-  <span class="chip" onclick="filterCat('Event', this)">🏆 Events &amp; Rodeo</span>
-  <span class="chip" onclick="filterCat('Training', this)">🎯 Training</span>
-  <span class="chip" onclick="filterCat('Highlight', this)">⭐ Highlights</span>
-  <span class="chip" onclick="filterCat('Analysis', this)">📊 Analysis</span>
-  <span class="chip" onclick="filterCat('NFR', this)">🤠 NFR</span>
-  <span class="chip" onclick="filterCat('Jackpot', this)">💰 Jackpots</span>
-  <span class="chip" onclick="filterCat('Header', this)">🔴 Headers</span>
-  <span class="chip" onclick="filterCat('Heeler', this)">🔵 Heelers</span>
-  <span class="chip" onclick="filterCat('Pro', this)">⚡ Pro Level</span>
-  <span class="chip" onclick="filterCat('Beginner', this)">🌱 Beginner</span>
+  <span class="chip active" onclick="filterCat('All',this)">All Videos</span>
+  <span class="chip" onclick="filterCat('Event',this)">🏆 Events</span>
+  <span class="chip" onclick="filterCat('Training',this)">🎯 Training</span>
+  <span class="chip" onclick="filterCat('Highlight',this)">⭐ Highlights</span>
+  <span class="chip" onclick="filterCat('Analysis',this)">📊 Analysis</span>
+  <span class="chip" onclick="filterCat('NFR',this)">🤠 NFR</span>
+  <span class="chip" onclick="filterCat('MajorRoping',this)">🏟 BFI / USTRC</span>
+  <span class="chip" onclick="filterCat('RanchoRio',this)">🌵 Rancho Rio</span>
+  <span class="chip" onclick="filterCat('Jackpot',this)">💰 Jackpots</span>
+  <span class="chip" onclick="filterCat('ProRodeo',this)">🐂 ProRodeo</span>
+  <span class="chip" onclick="filterCat('Header',this)">🔴 Headers</span>
+  <span class="chip" onclick="filterCat('Heeler',this)">🔵 Heelers</span>
+  <span class="chip" onclick="filterCat('Pro',this)">⚡ Pro Level</span>
+  <span class="chip" onclick="filterCat('Beginner',this)">🌱 Beginner</span>
 </div>
-
-<!-- SEARCH -->
 <div class="search-wrap">
-  <input class="search-input" type="text" id="searchInput" placeholder="Search videos, channels..." oninput="doSearch(this.value)">
+  <input class="search-input" type="text" id="searchInput" placeholder="Search by roper, channel, event..." oninput="doSearch(this.value)">
 </div>
-
-<div class="section-title" id="sectionTitle">Top 100 Ranked Videos</div>
-
-<!-- VIDEO GRID -->
+<div class="section-title" id="sectionTitle">Top Ranked Videos</div>
 <div class="video-grid" id="videoGrid"></div>
-
-<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModalBtn()">✕</button>
-    <div class="modal-video">
-      <iframe id="modalIframe" src="" allowfullscreen allow="autoplay"></iframe>
-    </div>
+    <button class="modal-close" onclick="closeModalBtn()">&#x2715;</button>
+    <div class="modal-video"><iframe id="modalIframe" src="" allowfullscreen allow="autoplay"></iframe></div>
     <div class="modal-info">
       <div class="modal-title" id="modalTitle"></div>
-      <div class="modal-meta">
-        <span class="modal-channel" id="modalChannel"></span>
-        <span class="meta-tag" id="modalCatTag"></span>
-      </div>
-      <a class="modal-yt-link" id="modalYTLink" href="#" target="_blank">▶ Watch on YouTube</a>
+      <div class="modal-meta"><span class="modal-channel" id="modalChannel"></span><span class="meta-tag" id="modalCatTag"></span></div>
+      <a class="modal-yt-link" id="modalYTLink" href="#" target="_blank">&#9654; Watch on YouTube</a>
     </div>
   </div>
 </div>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-links">
     <a href="https://teamroping.ai" target="_blank">TeamRoping.ai</a>
@@ -394,212 +131,150 @@ footer a { color: var(--gold); text-decoration: none; }
     <a href="https://az-horse-calendar.pages.dev" target="_blank">AZ Horse Calendar</a>
   </div>
   Team Roping Videos — A <a href="https://bridleandbit.com" target="_blank">Bridle &amp; Bit Magazine</a> Platform<br>
-  © 2026 All rights reserved.
+  &copy; 2026 All rights reserved.
 </footer>
-
 <script>
 const VIDEOS = [
-  {rank:1,title:"FULL SHOW | 2026 RODEOHOUSTON Super Series I, Championship",channel:"RODEOHOUSTON",views:110819,date:"2026-03-06",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:100.0,vid:"R15ZVxyzRPw"},
-  {rank:2,title:"HIT THAT SUBSCRIBE BUTTON FOR MORE ROPE #teamroping #horse #equestrian",channel:"Victor Climaco VMC",views:3773710,date:"2024-03-23",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"HorseTraining",score:95.1,vid:"hbx8gZpgy6A"},
-  {rank:3,title:"Scary moment at the World Series of Team Roping in Las Vegas",channel:"Ian Harrison's Views of Las Vegas",views:96928,date:"2025-12-11",category:"Event",skill:"Intermediate",role:"Both",eventType:"HorseTraining",score:90.4,vid:"6gC1jr3rP88"},
-  {rank:4,title:"2025 NFR Round 2 Winners 🏆 Rocker Steiner, Stetson Wright, Hailey Kinsel and More",channel:"Cowboy_Plus",views:95069,date:"2025-12-06",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:89.9,vid:"EYucp7Zie3Q"},
-  {rank:5,title:"Like clockwork ⏱️ #teamroping #jackpot #rodeo",channel:"Martina Holtkamp",views:13949,date:"2026-03-21",category:"Event",skill:"Intermediate",role:"Both",eventType:"Jackpot",score:89.8,vid:"g2fE0seXmVA"},
-  {rank:6,title:"FULL SHOW | 2024 RODEOHOUSTON Super Series I Championship",channel:"RODEOHOUSTON",views:611639,date:"2024-11-12",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:88.6,vid:"Rapxt5effhE"},
-  {rank:7,title:"2025 Wrangler BFI | THE FEIST Round 5 & Short Go | Full Broadcast + Champions Crowned",channel:"Bob Feist Invitational",views:204927,date:"2025-06-10",category:"Event",skill:"Beginner",role:"Both",eventType:"Practice",score:87.6,vid:"aYmEInn1CUA"},
-  {rank:8,title:"🏆 2025 RODEOHOUSTON Tie-Down Roping Champion: Riley Webb",channel:"RODEOHOUSTON",views:230325,date:"2025-05-01",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:87.0,vid:"6yrhCUFfGEE"},
-  {rank:9,title:"2025 NFR Round 1 Winners | Cowboy Channel",channel:"Cowboy_Plus",views:61005,date:"2025-12-05",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:86.6,vid:"nzQwAJMzGzM"},
-  {rank:10,title:"2025 NFR Round 3 Winners 🏆 Statler Wright, Tristan Hutchings, Ty Erickson and More",channel:"Cowboy_Plus",views:56173,date:"2025-12-07",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:86.2,vid:"omO-ooieRG8"},
-  {rank:11,title:"2025 NFR World Champions 🏆 Rocker Steiner, Stetson Wright, Kassie Mowry, Statler Wright",channel:"Cowboy_Plus",views:51968,date:"2025-12-14",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:86.0,vid:"tXdOgdy2AqY"},
-  {rank:12,title:"This little cowgirl is only FIVE YEARS OLD. A future World Champion in the making!",channel:"Wrangler Western",views:699247,date:"2024-07-16",category:"Event",skill:"Pro",role:"Both",eventType:"HorseTraining",score:86.0,vid:"nm5nRwY1Odg"},
-  {rank:13,title:"2025 NFR Round 5 Winners 🏆 Rocker Steiner's 89 Point Ride, Carlee Otero and More",channel:"Cowboy_Plus",views:51922,date:"2025-12-09",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:85.7,vid:"B03Q-qf8FGE"},
-  {rank:14,title:"Roper Gets Tossed - Team Roping Events 2022 #Shorts",channel:"Team Roping Events",views:4566328,date:"2023-01-28",category:"Event",skill:"Intermediate",role:"Both",eventType:"HorseTraining",score:85.2,vid:"rtDBxkChPEo"},
-  {rank:15,title:"Night One at the NFR 🔥 Bareback Rider Waylon Bourgeois + Event-by-Event Breakdown",channel:"Cowboy_Plus",views:49410,date:"2025-12-05",category:"Training",skill:"Pro",role:"Both",eventType:"NFR",score:85.1,vid:"frbYFayjbQo"},
-  {rank:16,title:"The Truth About Winning in Team Roping (From a World Champ) | Tyler Wade",channel:"Cowboy_Plus",views:15542,date:"2026-03-03",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:84.9,vid:"aPDvQun3mpQ"},
-  {rank:17,title:"2025 NFR Round 4 Winners 🏆 Stetson Wright, Wacey Schalla, Tricia Aldridge and More",channel:"Cowboy_Plus",views:44166,date:"2025-12-08",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:84.5,vid:"7k-GCJWEPiI"},
-  {rank:18,title:"Derrick Begay & Colter Todd 2025 Rodeo Houston Finals",channel:"PRCA PRORODEO",views:158787,date:"2025-03-24",category:"Event",skill:"Intermediate",role:"Both",eventType:"ProRodeo",score:83.0,vid:"FEkxPPuAsbQ"},
-  {rank:19,title:"2025 Wrangler BFI | THE FEIST Rounds 3 & 4 | Full Broadcast",channel:"Bob Feist Invitational",views:106190,date:"2025-06-03",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:82.5,vid:"fuweLMPUzzM"},
-  {rank:20,title:"2025 NFR Round 8 Winners Recap 🏆 Tricia Aldridge & Adios Pantalones Win Again",channel:"Cowboy_Plus",views:31490,date:"2025-12-12",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:82.3,vid:"YwnDTc84Org"},
-  {rank:21,title:"Team Roping ADDICTION is a Problem ⚓️",channel:"Anchor Brand Ranch",views:55041,date:"2025-09-02",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:81.3,vid:"YaiByBEUPH0"},
-  {rank:22,title:"Future World Champion. 🙌 #rodeo #cowboy #shorts",channel:"Wrangler Western",views:2580548,date:"2023-01-29",category:"Event",skill:"Pro",role:"Both",eventType:"Practice",score:81.0,vid:"QWIYhnCL1qk"},
-  {rank:23,title:"The Vegas Pre-Game",channel:"X Factor Roping",views:33627,date:"2025-11-09",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:80.9,vid:"OmLP9Mg6Pg8"},
-  {rank:24,title:"NFR Round 2 Recap ⭐ Bridger Anderson Breaks Down His 4.0 Steer Wrestling Run",channel:"Cowboy_Plus",views:27066,date:"2025-12-06",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:80.8,vid:"4PcyFZq8NGY"},
-  {rank:25,title:"Dusky Lynn 2025 American Rodeo West Regional Barrel Racing Champion",channel:"THE AMERICAN RODEO",views:153008,date:"2025-01-19",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:80.7,vid:"XV7uPLpOTIM"},
-  {rank:26,title:"Potter-Cervi Memorial Pro Classic - Open Round 1",channel:"X Factor Roping",views:9719,date:"2026-02-25",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:80.6,vid:"FR56KF8nuLU"},
-  {rank:27,title:"🏆 2025 RODEOHOUSTON Team Roping Champions: Derrick Begay & Colter Todd",channel:"RODEOHOUSTON",views:86688,date:"2025-05-15",category:"Event",skill:"Intermediate",role:"Both",eventType:"HorseTraining",score:80.4,vid:"I5rW3UQpp7I"},
-  {rank:28,title:"1ª ETAPA CMLD",channel:"RopingTV",views:1235,date:"2026-03-28",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:80.3,vid:"lhNUjpfkcc4"},
-  {rank:29,title:"2025 Wrangler BFI | THE FEIST Rounds 1 & 2 | Full Broadcast",channel:"Bob Feist Invitational",views:73719,date:"2025-05-28",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:79.7,vid:"yc5Edd4jJns"},
-  {rank:30,title:"Live Like Ace - Open Round 1",channel:"X Factor Roping",views:4545,date:"2026-03-15",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:78.9,vid:"V7Ev3Xn9J9I"},
-  {rank:31,title:"But the reach 🔥 #teamroping #roping #jackpot",channel:"Martina Holtkamp",views:13767,date:"2026-01-15",category:"Event",skill:"Intermediate",role:"Both",eventType:"Jackpot",score:78.7,vid:"-3eUEyJ_oEI"},
-  {rank:32,title:"Kaleb Driggers & Jade Corkill in short rd w/ 5.23 to win COJO Champions",channel:"Talk Rodeo To Me",views:27733,date:"2025-10-12",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:78.1,vid:"9K8rrNk3Quc"},
-  {rank:33,title:"FULL SHOW | 2025 RODEOHOUSTON Semifinal 2",channel:"RODEOHOUSTON",views:75443,date:"2025-03-25",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:77.7,vid:"pvvvOHiuiM0"},
-  {rank:34,title:"Kaleb Driggers & Junior Nogueira, 2025 American Rodeo Team Roping Champions",channel:"THE AMERICAN RODEO",views:63142,date:"2025-04-22",category:"Event",skill:"Beginner",role:"Both",eventType:"Practice",score:77.3,vid:"2F1s6a6Ry9o"},
-  {rank:35,title:"San Diego Rodeo Team Roping 2026",channel:"Rocky Mountain Roping",views:10800,date:"2026-01-20",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:77.2,vid:"_KXi8uNZUDo"},
-  {rank:36,title:"Andrew Ward & Jake Long Your Team Roping Champions 🙌",channel:"Cowboy_Plus",views:14441,date:"2025-12-14",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:76.7,vid:"AboO_jDD-TY"},
-  {rank:37,title:"Rnd 10 team roping 2015 NFR",channel:"BumpDock LoadStock",views:13167,date:"2025-12-22",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:76.6,vid:"hLhIPLiG8HM"},
-  {rank:38,title:"No Guarantee | Episode 1 | Team Roping Docuseries",channel:"X Factor Roping",views:18099,date:"2025-11-11",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:76.5,vid:"avWWN1T5HQU"},
-  {rank:39,title:"Roping Ol' Son #teamroping #horse #roping",channel:"Barrett Houser",views:860259,date:"2023-05-26",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"HorseTraining",score:76.1,vid:"XyTSihT0378"},
-  {rank:40,title:"'JUST LIKE THAT!' 😮‍💨 Best Team Roping Runs of 2025",channel:"Cowboy_Plus",views:17083,date:"2025-11-09",category:"Event",skill:"Beginner",role:"Both",eventType:"Practice",score:76.0,vid:"NoI3cD4LNm8"},
-  {rank:41,title:"TEAM ROPING - RANCHO 2K SANTA LUZIA",channel:"TCR TUCURA",views:660,date:"2026-03-28",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:75.7,vid:"lzJ-87HRMDs"},
-  {rank:42,title:"Just Kaleb Driggers and Junior Nogueira doing Kaleb & Junior things again.",channel:"The Team Roping Journal",views:264818,date:"2024-03-15",category:"Event",skill:"Pro",role:"Both",eventType:"Practice",score:75.5,vid:"r1DjtAqu8Ag"},
-  {rank:43,title:"Jingle Bell Classic",channel:"X Factor Roping",views:9660,date:"2025-12-27",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:74.6,vid:"8YnpkqKNDHc"},
-  {rank:44,title:"No Guarantee | Episode 3 | Team Roping Docuseries",channel:"X Factor Roping",views:13264,date:"2025-11-17",category:"Analysis",skill:"Intermediate",role:"Header",eventType:"Practice",score:74.6,vid:"eaQtrhnD2nY"},
-  {rank:45,title:"Roping jackpot rig #rodeo #roping #teamroping #nfr",channel:"Twisted Hat Co",views:15214,date:"2025-10-28",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:74.5,vid:"GjVckPx543s"},
-  {rank:46,title:"Sandhills Invitational",channel:"X Factor Roping",views:7953,date:"2026-01-14",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:74.5,vid:"VwzXgZ5aJF0"},
-  {rank:47,title:"#roping #jackpot #teamroping #header #heeler #ropeclub",channel:"Rope Club",views:95679,date:"2024-10-01",category:"Event",skill:"Intermediate",role:"Header",eventType:"Jackpot",score:73.9,vid:"FD0Y1EfP3xY"},
-  {rank:48,title:"Shad Mayfield | 6.8s | 2025 NFR Round 1 Winner",channel:"PRCA PRORODEO",views:9975,date:"2025-12-05",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:73.5,vid:"IlcKoRWtRuM"},
-  {rank:49,title:"Lonestar Shootout 2025 Open Roping",channel:"X Factor Roping",views:42863,date:"2025-03-21",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:73.4,vid:"jzl8S8bfa1w"},
-  {rank:50,title:"NFR Roping Practice w/John Douch (Tying 20+ calves!!)",channel:"Shad Mayfield",views:69273,date:"2024-11-30",category:"Training",skill:"Pro",role:"Both",eventType:"NFR",score:73.3,vid:"jwu8EZhkHM0"},
-  {rank:51,title:"Roping the dummy with my lady! #horses #rodeo #roping #teamroping",channel:"Reed Nolan",views:67759,date:"2024-11-07",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:72.5,vid:"d8qJyigdGuY"},
-  {rank:52,title:"Heel shot!! #roping #heeler #teamroping #rodeo",channel:"Rope Club",views:169263,date:"2024-03-25",category:"Event",skill:"Intermediate",role:"Heeler",eventType:"Practice",score:72.5,vid:"0jAPGfDD1U0"},
-  {rank:53,title:"2025 Wrangler BFI Top Heel Horse #bfi #teamroping #heelhorse",channel:"Bob Feist Invitational",views:30503,date:"2025-04-01",category:"Analysis",skill:"Intermediate",role:"Heeler",eventType:"HorseTraining",score:71.3,vid:"UI_N-Nq27xg"},
-  {rank:54,title:"American Hero Celebration Imus Ranch NFR Showdown 2024 - Team Roping",channel:"X Factor Roping",views:92480,date:"2024-07-10",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:71.2,vid:"s-LjFybpuyo"},
-  {rank:55,title:"ARIAT World Series of Team Roping Finals action from Las Vegas",channel:"Ian Harrison's Views of Las Vegas",views:6474,date:"2025-12-11",category:"Event",skill:"Intermediate",role:"Header",eventType:"Practice",score:70.7,vid:"vjol1MdFaqk"},
-  {rank:56,title:"Lightning Aguilera / Kaden Profili win round 9 team roping with 3.4 seconds",channel:"PRCA PRORODEO",views:5701,date:"2025-12-13",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:69.9,vid:"Hj--78mv6AE"},
-  {rank:57,title:"Nelson Wyatt & Jonathan Torres 2025 American Rodeo Central Team Roping Champions",channel:"THE AMERICAN RODEO",views:27525,date:"2025-02-24",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:69.4,vid:"hx5R7N9fDRk"},
-  {rank:58,title:"2024 Pendleton Team Roping Champs | Dustin Egusquiza / Levi Lord",channel:"PRCA PRORODEO",views:54157,date:"2024-09-16",category:"Analysis",skill:"Intermediate",role:"Header",eventType:"Practice",score:69.3,vid:"32SLuVay8TE"},
-  {rank:59,title:"Tyler Wade and Wesley Thorp Winning Big 🔥 #TeamRoping",channel:"Rodeo Network",views:41635,date:"2024-11-12",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:69.1,vid:"Nd0v4id9bRY"},
-  {rank:60,title:"Whatever it takes! #horses #roping #teamroping #jackpot",channel:"Rope Club",views:73913,date:"2024-06-24",category:"Event",skill:"Intermediate",role:"Both",eventType:"Jackpot",score:69.1,vid:"u62J88kxPrE"},
-  {rank:61,title:"Women roping at the San Antonio Stock Show & Rodeo",channel:"Yoshea Lux",views:424397,date:"2023-02-16",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:68.4,vid:"eR44otWuTn8"},
-  {rank:62,title:"The Legend! Trevor Brazile & Trey Yates 🤯 #roping",channel:"Rodeo Network",views:36142,date:"2024-11-05",category:"Highlight",skill:"Intermediate",role:"Both",eventType:"Practice",score:67.8,vid:"hxMd9SQqm7w"},
-  {rank:63,title:"The BEST Calf Roping Angle by far #shorts",channel:"SSD WEST",views:255433,date:"2023-06-10",category:"Training",skill:"Intermediate",role:"Both",eventType:"Practice",score:67.7,vid:"_I_DgEk_NiU"},
-  {rank:64,title:"Don't blink! #fast #time #roping #teamroping #horses",channel:"Rope Club",views:153332,date:"2023-10-25",category:"Training",skill:"Intermediate",role:"Both",eventType:"Practice",score:67.6,vid:"WePlMRXMNG8"},
-  {rank:65,title:"2008 NFR rnd 10 Team Roping",channel:"BumpDock LoadStock",views:2377,date:"2026-02-03",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:67.6,vid:"TzlY-Szj7ZA"},
-  {rank:66,title:"Treston Brazile showcasing his skills at the BFI Invitational Team Roping",channel:"Victor Climaco VMC",views:17272,date:"2025-04-03",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:67.3,vid:"tMcVCWKua1Y"},
-  {rank:67,title:"A safer way to practice team roping? The Speed Trainer!",channel:"Smarty Rodeo",views:11010,date:"2025-06-21",category:"Training",skill:"Intermediate",role:"Both",eventType:"Practice",score:66.8,vid:"qaeuz2yAgeY"},
-  {rank:68,title:"Cooper Brittain and Wesley Thorp win the Jackpot 🔥 #TeamRoping",channel:"Rodeo Network",views:22777,date:"2025-01-18",category:"Event",skill:"Intermediate",role:"Both",eventType:"Jackpot",score:66.8,vid:"hvMdB7VB2Oc"},
-  {rank:69,title:"Kaleb Driggers and Junior Nogueira are 'pretty old but not dead yet.'",channel:"The Team Roping Journal",views:25925,date:"2024-12-14",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:66.6,vid:"OZTA8_KlXhw"},
-  {rank:70,title:"Pincher Creek Team Roping Jackpot 2025",channel:"Tess Potts",views:7381,date:"2025-08-26",category:"Event",skill:"Intermediate",role:"Both",eventType:"Jackpot",score:66.5,vid:"RhYsyVNg80I"},
-  {rank:71,title:"Winning The World Championship... In Style! | Fallon Taylor",channel:"Cowboy_Plus",views:7847,date:"2025-08-14",category:"Event",skill:"Pro",role:"Both",eventType:"HorseTraining",score:66.5,vid:"okcwJ_lcd-A"},
-  {rank:72,title:"Junior Nunes Nogueira's BEST NFR Runs!",channel:"Cowboy_Plus",views:6284,date:"2025-09-17",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:66.3,vid:"sjVL3vS-4oY"},
-  {rank:73,title:"Always out working! #roping #teamroping #horses",channel:"Rope Club",views:45180,date:"2024-07-15",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:66.1,vid:"5Qv6eEYe29Q"},
-  {rank:74,title:"Position when Heeling with Logan Medlin",channel:"Smarty Rodeo",views:7407,date:"2025-08-11",category:"Analysis",skill:"Intermediate",role:"Heeler",eventType:"Practice",score:65.9,vid:"yH1A8yjbSfE"},
-  {rank:75,title:"Trying to be legendary! #roping #teamroping #nfr",channel:"Rope Club",views:55380,date:"2024-05-08",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:65.6,vid:"HRb-8AGb4kc"},
-  {rank:76,title:"6ª Copa Rancho Pais e Filhos Team Roping 2026 | AO VIVO",channel:"ROMAGNOLIS FOTOGRAFIA",views:145,date:"2026-03-28",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:64.7,vid:"77De0CbSXZQ"},
-  {rank:77,title:"Learning to heel! #teamroping #rodeo #horse",channel:"Barrett Houser",views:66667,date:"2024-02-17",category:"Event",skill:"Beginner",role:"Heeler",eventType:"HorseTraining",score:64.7,vid:"AZyRiqk8nkk"},
-  {rank:78,title:"Team Roping - Heeling practice #roping #teamroping #horse",channel:"Jared Cole",views:10992,date:"2025-04-18",category:"Training",skill:"Intermediate",role:"Heeler",eventType:"HorseTraining",score:64.5,vid:"RBhS2cKnSB8"},
-  {rank:79,title:"Kolton Schmidt / Jonathan Torres win #WranglerNFR round 5 team roping",channel:"PRCA PRORODEO",views:2644,date:"2025-12-09",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:64.2,vid:"aB5tHdYY2oo"},
-  {rank:80,title:"4X WORLD CHAMPION ALLEN BACH",channel:"WILD RIDES TV",views:3324,date:"2025-11-03",category:"Event",skill:"Pro",role:"Both",eventType:"Practice",score:63.9,vid:"VAjOm3s_MHk"},
-  {rank:81,title:"The Replay: 2023 Team Roping World Champions",channel:"The Team Roping Journal",views:73493,date:"2023-12-18",category:"Event",skill:"Pro",role:"Both",eventType:"NFR",score:63.7,vid:"0eIVe4lNcaA"},
-  {rank:82,title:"HOW TO ROPE LIKE A COWBOY!",channel:"Under the Swell",views:54354,date:"2024-03-01",category:"Training",skill:"Beginner",role:"Both",eventType:"Practice",score:63.6,vid:"KJwbaIYPi4g"},
-  {rank:83,title:"Goat roping",channel:"Goats and Ropes",views:19984,date:"2024-11-06",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:63.6,vid:"Y6DAxTJrGdo"},
-  {rank:84,title:"The Big Dance - USTRC Finals",channel:"The Final Spin",views:6256308,date:"2016-10-24",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:63.4,vid:"TQ2Rs0ixRcU"},
-  {rank:85,title:"Team Roping Drill for Beginners #teamroping",channel:"Barrett Houser",views:156856,date:"2023-04-25",category:"Training",skill:"Beginner",role:"Both",eventType:"Practice",score:62.9,vid:"nfQBEWWP1j0"},
-  {rank:86,title:"Fastest tie-down roping time ever! 💯",channel:"Crazy Captions",views:16784,date:"2024-11-18",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:62.7,vid:"t-yCvKzb7y4"},
-  {rank:87,title:"The American Dream - Junior Nogueira",channel:"Rodeo Live",views:15231,date:"2024-12-08",category:"Event",skill:"Beginner",role:"Both",eventType:"Practice",score:62.7,vid:"RqSwxQDKGM8"},
-  {rank:88,title:"Billie Jack Saebens Roping Practice Session - X Factor Team Roping",channel:"X Factor Roping",views:70571,date:"2023-11-08",category:"Training",skill:"Pro",role:"Both",eventType:"Practice",score:62.4,vid:"6ddQ2h4pFF0"},
-  {rank:89,title:"Jackie Crawford and Annette Stahl | All Girl Team Roping | Women's Rodeo Championships",channel:"Premier Women's Rodeo",views:24422,date:"2024-08-08",category:"Training",skill:"Intermediate",role:"Both",eventType:"Practice",score:62.4,vid:"CkTgiLFg0io"},
-  {rank:90,title:"Heel-O-Matic Team Roping Ground Dummies by Smarty Rodeo",channel:"Smarty Rodeo",views:8092,date:"2025-04-17",category:"Event",skill:"Intermediate",role:"Heeler",eventType:"Practice",score:62.3,vid:"qEQn7aNgqZI"},
-  {rank:91,title:"Team Roping | 2022 West Texas Open | Round 1",channel:"X Factor Roping",views:451796,date:"2022-06-03",category:"Event",skill:"Beginner",role:"Both",eventType:"Practice",score:62.2,vid:"DPVQxr4UenQ"},
-  {rank:92,title:"Team roping #classicropes #teamroping #rodeoevent",channel:"Goat Roper",views:2861,date:"2025-10-21",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:62.2,vid:"g6fwKgZvcs8"},
-  {rank:93,title:"Team roping jackpot run #roping #teamroping #horse",channel:"Jared Cole",views:5108,date:"2025-07-12",category:"Event",skill:"Intermediate",role:"Both",eventType:"Jackpot",score:62.1,vid:"-wofMmbMTs4"},
-  {rank:94,title:"Trevor Brazile's Technique for Roping Smaller Horns",channel:"The Team Roping Journal",views:7590,date:"2025-04-21",category:"Training",skill:"Intermediate",role:"Both",eventType:"Practice",score:62.0,vid:"QYU7Ik6Rrps"},
-  {rank:95,title:"Dustin Egusquiza and Levi Lord split round 4 team roping",channel:"PRCA PRORODEO",views:1965,date:"2025-12-08",category:"Event",skill:"Pro",role:"Both",eventType:"Practice",score:62.0,vid:"t1h8ELKcMBA"},
-  {rank:96,title:"ARIAT World Series of Team Roping in Las Vegas: Fast catches by old friends",channel:"Ian Harrison's Views of Las Vegas",views:1781,date:"2025-12-14",category:"Analysis",skill:"Intermediate",role:"Both",eventType:"Practice",score:61.7,vid:"asSTv6Ajiys"},
-  {rank:97,title:"The Final Spin 2015 US Open Championships",channel:"The Final Spin",views:4913271,date:"2016-09-20",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:61.6,vid:"81EG_16SS6M"},
-  {rank:98,title:"Kaylee Billingsley | Women's Rodeo Championships Athlete | Breakaway Roping",channel:"Premier Women's Rodeo",views:22534,date:"2024-08-01",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:61.6,vid:"QB7SV2mWUkU"},
-  {rank:99,title:"The 2025 #WranglerNFR Round 10 – Team Roping Average Champions",channel:"LasVegasNFR",views:1715,date:"2025-12-14",category:"Event",skill:"Pro",role:"Both",eventType:"Practice",score:61.4,vid:"GYlUCPEHZCs"},
-  {rank:100,title:"ARIAT World Series of Team Roping in Las Vegas: Newlyweds and a father-son combo",channel:"Ian Harrison's Views of Las Vegas",views:1709,date:"2025-12-14",category:"Event",skill:"Intermediate",role:"Both",eventType:"Practice",score:61.4,vid:"BkrsE2Eyh_g"}
+  {rank:1,title:'Team Roping Docuseries | NO GUARANTEE - Official Trailer',channel:'X Factor Roping',views:1162234,date:'2025-10-22',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:100.0,vid:'CRBCB8QWpF0'},
+  {rank:2,title:'Don’t worry Jade Corkill, Colby Corkill had it handled while you are at that other rodeo...',channel:'The Team Roping Journal',views:220078,date:'2025-12-10',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:91.6,vid:'nA_owXUP7bU'},
+  {rank:3,title:'NFR Series | Where The West Goes All In: Luck of the draw',channel:'PRCA PRORODEO',views:173006,date:'2025-10-29',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:88.0,vid:'0AOzn5Nt17Q'},
+  {rank:4,title:'Scary moment at the World Series of Team Roping in Las Vegas: A horse falls and takes down its rider',channel:'Ian Harrison\'s Views of Las Vegas',views:96928,date:'2025-12-11',category:'Event',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:86.3,vid:'6gC1jr3rP88'},
+  {rank:5,title:'2025 Wrangler BFI | THE FEIST Round 5 & Short Go | Full Broadcast + Champions Crowned',channel:'Bob Feist Invitational ',views:204978,date:'2025-06-10',category:'Event',skill:'Beginner',role:'Both',eventType:'MajorRoping',score:83.8,vid:'aYmEInn1CUA'},
+  {rank:6,title:'The Truth About Winning in Team Roping (From a World Champ) | Tyler Wade',channel:'Cowboy_Plus',views:15549,date:'2026-03-03',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:81.4,vid:'aPDvQun3mpQ'},
+  {rank:7,title:'All the dopamine and tie dye courtesy world champ Jake Long',channel:'The Team Roping Journal',views:35818,date:'2025-12-15',category:'Analysis',skill:'Pro',role:'Both',eventType:'Practice',score:80.2,vid:'_vqIlZbBxkA'},
+  {rank:8,title:'Derrick Begay & Colter Todd 2025 Rodeo Houston Finals',channel:'PRCA PRORODEO',views:158787,date:'2025-03-24',category:'Event',skill:'Pro',role:'Both',eventType:'ProRodeo',score:79.8,vid:'FEkxPPuAsbQ'},
+  {rank:9,title:'2025 Wrangler BFI | THE FEIST Rounds 3 & 4 | Full Broadcast',channel:'Bob Feist Invitational ',views:106196,date:'2025-06-03',category:'Event',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:79.4,vid:'fuweLMPUzzM'},
+  {rank:10,title:'NO GUARANTEE - Official Trailer | Team Roping Documentary',channel:'X Factor Roping',views:47197,date:'2025-10-22',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:79.3,vid:'0vYC6N7wN2Y'},
+  {rank:11,title:'The Vegas Pre-Game',channel:'X Factor Roping',views:33627,date:'2025-11-09',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:77.9,vid:'OmLP9Mg6Pg8'},
+  {rank:12,title:'Potter-Cervi Memorial Pro Classic - Open Round 1',channel:'X Factor Roping',views:9719,date:'2026-02-25',category:'Event',skill:'Intermediate',role:'Both',eventType:'Practice',score:77.6,vid:'FR56KF8nuLU'},
+  {rank:13,title:'🏆 2025 RODEOHOUSTON Team Roping Champions: Derrick Begay & Colter Todd  #rodeohouston #teamroping',channel:'RODEOHOUSTON',views:86688,date:'2025-05-15',category:'Event',skill:'Pro',role:'Both',eventType:'HorseTraining',score:77.5,vid:'I5rW3UQpp7I'},
+  {rank:14,title:'2025 Wrangler BFI | THE FEIST Rounds 1 & 2 | Full Broadcast',channel:'Bob Feist Invitational ',views:73726,date:'2025-05-28',category:'Event',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:76.8,vid:'yc5Edd4jJns'},
+  {rank:15,title:'Jade Corkill was a DIFFERENT kind of nervous at the Thomas & Mack',channel:'The Team Roping Journal',views:21825,date:'2025-12-10',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:76.6,vid:'KabR-uXfQUQ'},
+  {rank:16,title:'NFR Round 10 Recap | NFR Final at December 14, 12:00 AM/ET',channel:'Cowboy_Plus',views:20674,date:'2025-12-14',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:76.5,vid:'-FHcxE91idk'},
+  {rank:17,title:'𝓛𝓲𝓿𝓮 𝓛𝓲𝓴𝓮 𝓐𝓬𝓮 - Open Round 1',channel:'X Factor Roping',views:4545,date:'2026-03-15',category:'Event',skill:'Intermediate',role:'Both',eventType:'Practice',score:76.1,vid:'V7Ev3Xn9J9I'},
+  {rank:18,title:'Kaleb Driggers & Jade Corkill in short rd w/ 5.23 to win COJO Champions   ‌#teamroping #rodeo',channel:'Talk Rodeo To Me',views:27749,date:'2025-10-12',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:75.4,vid:'9K8rrNk3Quc'},
+  {rank:19,title:'Kaleb Driggers & Junior Nogueira, 2025 American Rodeo Team Roping Champions',channel:'THE AMERICAN RODEO',views:63142,date:'2025-04-22',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:74.7,vid:'2F1s6a6Ry9o'},
+  {rank:20,title:'Andrew Ward & Jake Long Your Team Roping Champions 🙌',channel:'Cowboy_Plus',views:14441,date:'2025-12-14',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:74.2,vid:'AboO_jDD-TY'},
+  {rank:21,title:'No Guarantee | Episode 1 | Team Roping Docuseries',channel:'X Factor Roping',views:18098,date:'2025-11-11',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:74.0,vid:'avWWN1T5HQU'},
+  {rank:22,title:'2023 NFR Practice Session with Tyler Wade and Wesley Thorp | X Factor Roping',channel:'X Factor Roping',views:19559,date:'2025-10-30',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:73.9,vid:'rS2w75JRbAQ'},
+  {rank:23,title:'44 seconds on 10 head, Andrew Ward and Jake Long win the 2025 NFR Average presented by Resorts World',channel:'PRCA PRORODEO',views:13380,date:'2025-12-14',category:'Event',skill:'Pro',role:'Header',eventType:'NFR',score:73.7,vid:'9LlY0H47cm8'},
+  {rank:24,title:'Roping Ol’ Son #teamroping #horse #roping #teamroper #barretthouser',channel:'Barrett Houser',views:860259,date:'2023-05-26',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'HorseTraining',score:73.6,vid:'XyTSihT0378'},
+  {rank:25,title:'Rope 4 the $$$ - Open Muley - Rnd 1',channel:'X Factor Roping',views:5514,date:'2026-02-23',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'HorseTraining',score:73.6,vid:'x7txOSyUxX4'},
+  {rank:26,title:'Potter-Cervi Memorial Pro Classic - Open Pre Round 1',channel:'X Factor Roping',views:5303,date:'2026-02-25',category:'Event',skill:'Intermediate',role:'Both',eventType:'Practice',score:73.6,vid:'UOfB-OuIVus'},
+  {rank:27,title:'\'JUST LIKE THAT!\' 😮‍💨 Best Team Roping Runs of 2025',channel:'Cowboy_Plus',views:17083,date:'2025-11-09',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:73.5,vid:'NoI3cD4LNm8'},
+  {rank:28,title:'Lone Star Shootout',channel:'X Factor Roping',views:6032,date:'2026-02-15',category:'Event',skill:'Intermediate',role:'Both',eventType:'Practice',score:73.2,vid:'UVF9lcWZVp0'},
+  {rank:29,title:'Sandhills Invitational',channel:'X Factor Roping',views:9202,date:'2026-01-14',category:'Event',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:73.2,vid:'nZRt8UIdpN0'},
+  {rank:30,title:'Just Kaleb Driggers and Junior Nogueira doing Kaleb & Junior things again.',channel:'The Team Roping Journal',views:264881,date:'2024-03-15',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:73.1,vid:'r1DjtAqu8Ag'},
+  {rank:31,title:'No Guarantee | Episode 2 | Team Roping Docuseries',channel:'X Factor Roping',views:14482,date:'2025-11-13',category:'Analysis',skill:'Pro',role:'Header',eventType:'MajorRoping',score:72.7,vid:'Te8qPPUyGJ0'},
+  {rank:32,title:'𝒲𝒴𝒯𝑅𝒞 - Rafter P Construction Open Rnd 1',channel:'X Factor Roping',views:1801,date:'2026-03-21',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:72.5,vid:'EiIplq-q8ZA'},
+  {rank:33,title:'Kaleb Driggers Barn Check',channel:'Equinety - Helping Horses Worldwide',views:31876,date:'2025-06-28',category:'Training',skill:'Pro',role:'Both',eventType:'MajorRoping',score:72.4,vid:'8y9432vyl2I'},
+  {rank:34,title:'No Guarantee | Episode 3 | Team Roping Docuseries',channel:'X Factor Roping',views:13264,date:'2025-11-17',category:'Analysis',skill:'Pro',role:'Header',eventType:'Practice',score:72.3,vid:'eaQtrhnD2nY'},
+  {rank:35,title:'Jingle Bell Classic',channel:'X Factor Roping',views:9660,date:'2025-12-27',category:'Event',skill:'Intermediate',role:'Both',eventType:'Practice',score:72.3,vid:'8YnpkqKNDHc'},
+  {rank:36,title:'Roping jackpot rig #rodeo #roping #teamroping #nfr #prorodeo #ustrc #teamroping #horse #calfroping',channel:'Twisted Hat Co ',views:15217,date:'2025-10-28',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:72.2,vid:'GjVckPx543s'},
+  {rank:37,title:'No Guarantee | Episode 5 | Team Roping Docuseries',channel:'X Factor Roping',views:11675,date:'2025-12-01',category:'Analysis',skill:'Pro',role:'Header',eventType:'Practice',score:72.2,vid:'-249ZXbJNec'},
+  {rank:38,title:'My horses stole all my money. #horse #teamroping',channel:'Barrett Houser',views:120149,date:'2024-08-26',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'HorseTraining',score:72.1,vid:'h6wiZj6u5kA'},
+  {rank:39,title:'𝓡𝓸𝔂𝓪𝓵 𝓒𝓻𝓸𝔀𝓷 - Buckeye, AZ',channel:'X Factor Roping',views:5617,date:'2026-02-07',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:71.9,vid:'KfHFBQvX8r0'},
+  {rank:40,title:'Nogueira Jr and Clay Smith turning in a time of 31.85 on five head to pocket $28,070',channel:'Crazy Captions',views:38754,date:'2025-04-24',category:'Analysis',skill:'Intermediate',role:'Header',eventType:'Practice',score:71.6,vid:'KCYW50CDMTU'},
+  {rank:41,title:'#roping #jackpot #teamroping #header #heeler #ropeclub #rodeo',channel:'Rope Club',views:95687,date:'2024-10-01',category:'Event',skill:'Intermediate',role:'Header',eventType:'Jackpot',score:71.6,vid:'FD0Y1EfP3xY'},
+  {rank:42,title:'2025 World Champs Andrew Ward and Jake Long',channel:'The Team Roping Journal',views:9436,date:'2025-12-15',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:71.5,vid:'CTSH2le07s8'},
+  {rank:43,title:'Equinety Barn Check - Junior Noguiera',channel:'Equinety - Helping Horses Worldwide',views:19235,date:'2025-08-30',category:'Analysis',skill:'Pro',role:'Both',eventType:'HorseTraining',score:71.4,vid:'29pxQM1_Kts'},
+  {rank:44,title:'Do you like my ropes? #horse #teamroping',channel:'Barrett Houser',views:27299,date:'2025-06-26',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'HorseTraining',score:71.4,vid:'ljwNaxkG6PE'},
+  {rank:45,title:'The West Texas Open',channel:'X Factor Roping',views:7024,date:'2026-01-13',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:71.4,vid:'W5DgL43jG3w'},
+  {rank:46,title:'Meet your team roping champions!',channel:'Cowboy_Plus',views:9272,date:'2025-12-14',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:71.3,vid:'xDRE3slq8_Q'},
+  {rank:47,title:'No Guarantee | Episode 6 | Team Roping Docuseries',channel:'X Factor Roping',views:9561,date:'2025-12-08',category:'Analysis',skill:'Pro',role:'Header',eventType:'Practice',score:71.2,vid:'fbTCu_cL7QY'},
+  {rank:48,title:'No Guarantee | Episode 4 | Team Roping Docuseries',channel:'X Factor Roping',views:10601,date:'2025-11-24',category:'Event',skill:'Pro',role:'Header',eventType:'Practice',score:71.2,vid:'0vlnL3Vn4wc'},
+  {rank:49,title:'Lonestar Shootout 2025 Open Roping',channel:'X Factor Roping',views:42863,date:'2025-03-21',category:'Event',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:71.2,vid:'jzl8S8bfa1w'},
+  {rank:50,title:'From Brazil to Gold Buckles: Junior Nogueira’s Wild Rodeo Journey',channel:'Cowboy_Plus',views:16754,date:'2025-09-16',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:71.1,vid:'Uy2D0rtLxN8'},
+  {rank:51,title:'Team roping event at Southpoint in Las Vegas on December 6, 2025.',channel:'Honeybee',views:9558,date:'2025-12-07',category:'Event',skill:'Intermediate',role:'Both',eventType:'Practice',score:71.1,vid:'UmGVjsMhgOs'},
+  {rank:52,title:'Tyler Wade & Wesley Thorp w/ 6.15 sec run at CoJo Championship Event ‌ ‌#roping #teamroping  #rodeo',channel:'Talk Rodeo To Me',views:11519,date:'2025-10-30',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:70.5,vid:'ege_UufNmrY'},
+  {rank:53,title:'Heel shot!! #roping #heeler #teamroping #rodeo #fyp #xybca #horses #shorts',channel:'Rope Club',views:169277,date:'2024-03-25',category:'Event',skill:'Intermediate',role:'Heeler',eventType:'Practice',score:70.4,vid:'0jAPGfDD1U0'},
+  {rank:54,title:'Roping the dummy with my lady! #horses #rodeo #roping #teamroping #cowboy #ropingdummiestexas',channel:'Reed Nolan',views:67746,date:'2024-11-07',category:'Event',skill:'Intermediate',role:'Both',eventType:'Practice',score:70.4,vid:'d8qJyigdGuY'},
+  {rank:55,title:'𝙈𝙪𝙡𝙚𝙮 𝙈𝙖𝙙𝙣𝙚𝙨𝙨 - Open Muley - Rnd 1',channel:'X Factor Roping',views:2994,date:'2026-02-24',category:'Event',skill:'Intermediate',role:'Both',eventType:'HorseTraining',score:69.8,vid:'7UQoHUk0mts'},
+  {rank:56,title:'2025 Wrangler BFI Top Heel Horse  #bfi #thefeist#thelegacyliveson #teamroping #heelhorse',channel:'Bob Feist Invitational ',views:30503,date:'2025-04-01',category:'Analysis',skill:'Intermediate',role:'Heeler',eventType:'MajorRoping',score:69.4,vid:'UI_N-Nq27xg'},
+  {rank:57,title:'American Hero Celebration Imus Ranch NFR Showdown 2024 - Team Roping',channel:'X Factor Roping',views:92483,date:'2024-07-10',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:69.3,vid:'s-LjFybpuyo'},
+  {rank:58,title:'BULLSEYE: Trevor Brazile Opens Up on Family, Roping Lessons & the NFR That Meant Everything',channel:'US Cowboy ',views:27284,date:'2025-04-08',category:'Training',skill:'Pro',role:'Both',eventType:'NFR',score:68.9,vid:'WyJ-mpBR4ag'},
+  {rank:59,title:'ARIAT World Series of Team Roping Finals action from Las Vegas: Headers & heelers for the big money',channel:'Ian Harrison\'s Views of Las Vegas',views:6477,date:'2025-12-11',category:'Event',skill:'Intermediate',role:'Header',eventType:'MajorRoping',score:68.9,vid:'vjol1MdFaqk'},
+  {rank:60,title:'Gold Buckle Futurity',channel:'X Factor Roping',views:7893,date:'2025-11-16',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:68.9,vid:'RJ42W9vdeso'},
+  {rank:61,title:'Why do you love this sport?',channel:'The Team Roping Journal',views:6166,date:'2025-12-15',category:'Analysis',skill:'Pro',role:'Both',eventType:'Practice',score:68.8,vid:'0NGsgmovzkk'},
+  {rank:62,title:'3X World Champ Reveals the Hidden Game of Team Roping | Wesley Thorp',channel:'Cowboy_Plus',views:16333,date:'2025-07-15',category:'Training',skill:'Pro',role:'Both',eventType:'NFR',score:68.7,vid:'xe7EH2Nh0PE'},
+  {rank:63,title:'2025 BFI 8.5 Champs Ravanna Bey & Joshua Bray',channel:'Bob Feist Invitational ',views:24864,date:'2025-04-02',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:68.1,vid:'-7yOWJo5N-E'},
+  {rank:64,title:'Las Vegas, we can\'t hear you? Andrew Ward & Jake Long are the 2025 PRCA Team Roping World Champions',channel:'PRCA PRORODEO',views:5393,date:'2025-12-14',category:'Analysis',skill:'Pro',role:'Both',eventType:'ProRodeo',score:67.8,vid:'NsYRa6o8HJA'},
+  {rank:65,title:'Trevor Brazile 26X World Champion & King of The Cowboys - Rodeo Time Podcast 152',channel:'Dale Brisby',views:71449,date:'2024-07-18',category:'Event',skill:'Pro',role:'Both',eventType:'ProRodeo',score:67.8,vid:'D19SsCF815A'},
+  {rank:66,title:'2024 Pendleton Team Roping Champs |  Dustin Egusquiza / Levi Lord',channel:'PRCA PRORODEO',views:54157,date:'2024-09-16',category:'Analysis',skill:'Pro',role:'Header',eventType:'Practice',score:67.6,vid:'32SLuVay8TE'},
+  {rank:67,title:'Nelson Wyatt & Jonathan Torres 2025 American Rodeo Central Team Roping Champions',channel:'THE AMERICAN RODEO',views:27525,date:'2025-02-24',category:'Event',skill:'Intermediate',role:'Both',eventType:'Practice',score:67.6,vid:'hx5R7N9fDRk'},
+  {rank:68,title:'Watson Team Roping - 9.5 Ariat WSTR Qualifier - Hamilton, TX',channel:'EQN Sports',views:750,date:'2026-03-22',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:67.5,vid:'26OP1-2rKRM'},
+  {rank:69,title:'Tyler Wade and Wesley Thorp Winning Big🔥💯 #TeamRoping',channel:'Rodeo Network',views:41643,date:'2024-11-12',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:67.4,vid:'Nd0v4id9bRY'},
+  {rank:70,title:'PRORODEO HALL OF FAME SHOWCASE 2025 | JAKE WARD & ANDREW LONG | TEAM ROPING CHAMPIONS',channel:'PRCA PRORODEO',views:997,date:'2026-03-17',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:67.4,vid:'f6dP5Ty6eu0'},
+  {rank:71,title:'Clay Logan Open',channel:'X Factor Roping',views:28973,date:'2025-02-02',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:67.4,vid:'fHfkd-ahIgs'},
+  {rank:72,title:'Whatever it takes! #horses #roping #teamroping #jackpot #imaginedragons #shorts',channel:'Rope Club',views:73929,date:'2024-06-24',category:'Event',skill:'Intermediate',role:'Both',eventType:'Jackpot',score:67.4,vid:'u62J88kxPrE'},
+  {rank:73,title:'Vlog #46: 2025 World Series of Team Roping Finale',channel:'Midpoint Equine ',views:3232,date:'2026-01-21',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:67.0,vid:'bAugZq96lNM'},
+  {rank:74,title:'Inside The Most Chaotic PRCA Team Roping Season This Decade | The Morning Kick, Sept. 17',channel:'US Cowboy ',views:8471,date:'2025-09-17',category:'Event',skill:'Intermediate',role:'Header',eventType:'ProRodeo',score:66.8,vid:'oB4lBqALljg'},
+  {rank:75,title:'Headers, Here’s What Your Heeler Wants You to Know',channel:'The Team Roping Journal',views:16050,date:'2025-05-19',category:'Analysis',skill:'Pro',role:'Header',eventType:'Practice',score:66.7,vid:'tPn60sA1pBM'},
+  {rank:76,title:'𝓛𝓲𝓿𝓮 𝓛𝓲𝓴𝓮 𝓐𝓬𝓮 - 14.5 Round 1',channel:'X Factor Roping',views:1098,date:'2026-03-14',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:66.7,vid:'Ny8rwPCsv_Y'},
+  {rank:77,title:'Learning To Rope #shorts #astablelife #horses #roping',channel:'A Stable Life',views:341987,date:'2023-04-11',category:'Analysis',skill:'Beginner',role:'Both',eventType:'Practice',score:66.6,vid:'g2I_lLaageQ'},
+  {rank:78,title:'The Legend! Trevor Brazile & Trey Yates 🤯 #roping',channel:'Rodeo Network',views:36144,date:'2024-11-05',category:'Highlight',skill:'Pro',role:'Both',eventType:'Practice',score:66.3,vid:'hxMd9SQqm7w'},
+  {rank:79,title:'#21 Coon - Wilson Cattle Co x The Horse Sale at Rancho Rio 2026',channel:'High Call Media',views:1073,date:'2026-03-12',category:'Event',skill:'Intermediate',role:'Both',eventType:'RanchoRio',score:66.3,vid:'YM_Q2WqRSpU'},
+  {rank:80,title:'The Feist | Bob Feist Invitational Documentary',channel:'Bob Feist Invitational ',views:25719,date:'2025-01-17',category:'Event',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:66.1,vid:'vzYeapSyYQE'},
+  {rank:81,title:'Don’t blink! #fast #time #roping #teamroping #horses #steer #ropeclub #arena #practice',channel:'Rope Club',views:153343,date:'2023-10-25',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'Practice',score:66.1,vid:'WePlMRXMNG8'},
+  {rank:82,title:'Watson Team Roping - Open Ariat WSTR Qualifier - Hamilton, TX',channel:'EQN Sports',views:654,date:'2026-03-21',category:'Analysis',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:66.0,vid:'PZjZFf5Riyo'},
+  {rank:83,title:'Team Roping\'s Greatest Champions | Bob Feist Invitational',channel:'Cowboy Life',views:834,date:'2026-03-16',category:'Highlight',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:65.8,vid:'h5ysQzViVN0'},
+  {rank:84,title:'“Treston Brazile showcasing his skills at the BFI Invitational Team Roping at Lazy E Arena! 🎯🏆🔥”',channel:'Victor Climaco VMC',views:17272,date:'2025-04-03',category:'Event',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:65.8,vid:'tMcVCWKua1Y'},
+  {rank:85,title:'My Daily Team Roping Dummy Drills That Actually Work',channel:'Barrett Houser',views:1795,date:'2026-02-17',category:'Training',skill:'Intermediate',role:'Both',eventType:'Training',score:65.7,vid:'yZBjoIAEmJE'},
+  {rank:86,title:'JAKE BARNES & CLAY O\'BRIEN COOPER TAKE TIME TO REFLECT',channel:'WILD RIDES TV',views:5837,date:'2025-10-18',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:65.6,vid:'xM5pXgvhtI4'},
+  {rank:87,title:'BFI Shorts | What Is This Place',channel:'Bob Feist Invitational ',views:17424,date:'2025-03-25',category:'Event',skill:'Intermediate',role:'Both',eventType:'MajorRoping',score:65.6,vid:'F2WknAyyANY'},
+  {rank:88,title:'Cooper Brittain and Wesley Thorp win the Jackpot🔥🙌#TeamRoping',channel:'Rodeo Network',views:22777,date:'2025-01-18',category:'Event',skill:'Pro',role:'Both',eventType:'Jackpot',score:65.4,vid:'hvMdB7VB2Oc'},
+  {rank:89,title:'Team roping tip of the day. #teamroping #horse',channel:'Barrett Houser',views:40212,date:'2024-09-07',category:'Training',skill:'Intermediate',role:'Both',eventType:'HorseTraining',score:65.4,vid:'jPawBfgyjb4'},
+  {rank:90,title:'Tanner Tomlinson and Travis Graves set a NFR Go-Round record!',channel:'Cowboy_Plus',views:3755,date:'2025-12-10',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:65.3,vid:'8fYl4JY80oU'},
+  {rank:91,title:'Kaleb Driggers and Junior Nogueira are “pretty old but not dead yet.”',channel:'The Team Roping Journal',views:25925,date:'2024-12-14',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:65.2,vid:'OZTA8_KlXhw'},
+  {rank:92,title:'Tyler Wade & Treston Brazile w/ 5.86 sec run in Rd 1 CoJo Championship  #teamroping #roping #rodeo',channel:'Talk Rodeo To Me',views:5425,date:'2025-10-13',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:65.0,vid:'VX9-NqVPHLo'},
+  {rank:93,title:'Relentless Remuda Equinety Barn Check',channel:'Equinety - Helping Horses Worldwide',views:91315,date:'2024-01-26',category:'Training',skill:'Intermediate',role:'Both',eventType:'Training',score:65.0,vid:'LkO0qFZJQuo'}
 ];
-
-let activeCat = 'All';
-let searchTerm = '';
-
-function fmtViews(n) {
-  if (n >= 1000000) return (n/1000000).toFixed(1)+'M views';
-  if (n >= 1000) return Math.round(n/1000)+'K views';
-  return n+' views';
-}
-
-function thumbURL(vid) {
-  return 'https://img.youtube.com/vi/'+vid+'/mqdefault.jpg';
-}
-
-function filterCat(cat, el) {
-  activeCat = cat;
-  searchTerm = '';
-  document.getElementById('searchInput').value = '';
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  render();
-}
-
-function doSearch(val) {
-  searchTerm = val.toLowerCase();
-  activeCat = 'All';
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  document.querySelector('.chip').classList.add('active');
-  render();
-}
-
-function render() {
-  const grid = document.getElementById('videoGrid');
-  const title = document.getElementById('sectionTitle');
-  let filtered = VIDEOS.filter(v => {
-    const matchCat =
-      activeCat === 'All' ||
-      activeCat === v.category ||
-      activeCat === v.eventType ||
-      activeCat === v.role ||
-      activeCat === v.skill;
-    const matchSearch = !searchTerm ||
-      v.title.toLowerCase().includes(searchTerm) ||
-      v.channel.toLowerCase().includes(searchTerm);
-    return matchCat && matchSearch;
+let activeCat='All',searchTerm='';
+function fmtViews(n){if(n>=1000000)return(n/1000000).toFixed(1)+'M views';if(n>=1000)return Math.round(n/1000)+'K views';return n+' views'}
+function thumb(vid){return'https://img.youtube.com/vi/'+vid+'/mqdefault.jpg'}
+function filterCat(cat,el){activeCat=cat;searchTerm='';document.getElementById('searchInput').value='';document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');render()}
+function doSearch(val){searchTerm=val.toLowerCase();activeCat='All';document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));document.querySelector('.chip').classList.add('active');render()}
+function render(){
+  const grid=document.getElementById('videoGrid');
+  const title=document.getElementById('sectionTitle');
+  let filtered=VIDEOS.filter(v=>{
+    const matchCat=activeCat==='All'||activeCat===v.category||activeCat===v.eventType||activeCat===v.role||activeCat===v.skill;
+    const matchSearch=!searchTerm||v.title.toLowerCase().includes(searchTerm)||v.channel.toLowerCase().includes(searchTerm);
+    return matchCat&&matchSearch;
   });
-
-  title.textContent = activeCat === 'All'
-    ? 'Top 100 Ranked Videos'
-    : activeCat + ' — ' + filtered.length + ' Videos';
-
-  if (!filtered.length) {
-    grid.innerHTML = '<div class="no-results">No videos found. Try a different filter.</div>';
-    return;
-  }
-
-  grid.innerHTML = filtered.map(v => `
-    <div class="video-card" onclick="openModal('${v.vid}','${v.title.replace(/'/g,"\\'")}','${v.channel.replace(/'/g,"\\'")}','${v.category}')">
+  title.textContent=activeCat==='All'?'Top '+filtered.length+' Ranked Videos':activeCat+' — '+filtered.length+' Videos';
+  if(!filtered.length){grid.innerHTML='<div class="no-results">No videos found. Try a different filter.</div>';return}
+  grid.innerHTML=filtered.map(v=>`
+    <div class="video-card" onclick="openModal('${v.vid}','${v.title.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${v.channel.replace(/'/g,"\\'")}','${v.category}','${v.eventType}')">
       <div class="thumb-wrap">
-        <img src="${thumbURL(v.vid)}" alt="${v.title}" loading="lazy">
+        <img src="${thumb(v.vid)}" alt="" loading="lazy">
         <div class="play-overlay"><div class="play-btn"></div></div>
-        <span class="rank-badge ${v.rank <= 3 ? 'top3' : ''}">#${v.rank}</span>
+        <span class="rank-badge ${v.rank<=3?'top3':''}">#${v.rank}</span>
       </div>
       <div class="card-body">
         <div class="card-title">${v.title}</div>
         <div class="card-channel">${v.channel}</div>
         <div class="card-meta">
           <span class="meta-tag tag-${v.category}">${v.category}</span>
-          ${v.eventType !== 'Practice' ? `<span class="meta-tag" style="background:#f0f0f0;color:#555">${v.eventType}</span>` : ''}
+          ${v.eventType!=='Practice'&&v.eventType!=='HorseTraining'?`<span class="meta-tag tag-${v.eventType}" style="background:#f5f5f5;color:#444">${v.eventType}</span>`:''}
         </div>
-        <div class="card-views">${fmtViews(v.views)} · Score: ${v.score}</div>
+        <div class="card-views">${fmtViews(v.views)} &middot; Score: ${v.score}</div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
-
-function openModal(vid, title, channel, category) {
-  document.getElementById('modalIframe').src = 'https://www.youtube.com/embed/'+vid+'?autoplay=1';
-  document.getElementById('modalTitle').textContent = title;
-  document.getElementById('modalChannel').textContent = channel;
-  const tag = document.getElementById('modalCatTag');
-  tag.textContent = category;
-  tag.className = 'meta-tag tag-'+category;
-  document.getElementById('modalYTLink').href = 'https://youtube.com/watch?v='+vid;
+function openModal(vid,title,channel,category,eventType){
+  document.getElementById('modalIframe').src='https://www.youtube.com/embed/'+vid+'?autoplay=1';
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalChannel').textContent=channel;
+  const tag=document.getElementById('modalCatTag');
+  tag.textContent=category;tag.className='meta-tag tag-'+category;
+  document.getElementById('modalYTLink').href='https://youtube.com/watch?v='+vid;
   document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-
-function closeModal(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
-}
-
-function closeModalBtn() {
-  document.getElementById('modalIframe').src = '';
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
-
+function closeModal(e){if(e.target===document.getElementById('modalOverlay'))closeModalBtn()}
+function closeModalBtn(){document.getElementById('modalIframe').src='';document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalBtn()});
 render();
 </script>
 </body>
