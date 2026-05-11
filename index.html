@@ -16,6 +16,8 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .header-top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 6px;border-bottom:1px solid rgba(200,146,42,0.25)}
 .sponsor-tag{font-size:.65rem;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase}
 .sponsor-tag a{color:var(--gold);text-decoration:none}
+.bb-logo-link{display:flex;align-items:center;line-height:0;}
+@media(max-width:599px){.bb-logo-link{display:none;}}
 .header-main{padding:14px 0 16px;text-align:center}
 .site-title{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--white);letter-spacing:1px;line-height:1.1}
 .site-title span{color:var(--gold)}
@@ -80,7 +82,9 @@ footer a{color:var(--gold);text-decoration:none}
 <header class="site-header">
   <div class="header-top">
     <span class="sponsor-tag">Sponsored by <a href="https://bridleandbit.com" target="_blank">Bridle &amp; Bit</a> Magazine</span>
-    <span class="sponsor-tag" style="color:rgba(255,255,255,.35)">teamropingvideos.com</span>
+    <a href="https://www.bridleandbit.com" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;line-height:0;" class="bb-logo-link">
+      <img src="https://imagedelivery.net/9VlM7Y9GaQMXOu5Ypg50yA/bb-hp-0/public" alt="Bridle &amp; Bit Magazine" style="height:28px;width:auto;">
+    </a>
   </div>
   <div class="header-main">
     <div class="site-title">Team Roping <span>Videos</span></div>
