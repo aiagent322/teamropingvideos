@@ -23,12 +23,11 @@
 :root{--brown:#5C3A1E;--gold:#C8922A;--gold2:#E8B84B;--red:#8B1A1A;--bg:#F5F0E8;--white:#FFFFFF;--text:#1a1a1a;--muted:#666;--border:#D9CFC0;--card-bg:#FFFFFF;--header-bg:#1a0f00}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;font-size:15px}
-.site-header{background:var(--header-bg);padding:0 16px;border-bottom:3px solid var(--gold)}
+.site-header{background:var(--header-bg);padding:0 16px;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
 .header-top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 6px;border-bottom:1px solid rgba(200,146,42,0.25)}
 .sponsor-tag{font-size:.65rem;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase}
 .sponsor-tag a{color:var(--gold);text-decoration:none}
 .bb-logo-link{display:flex;align-items:center;line-height:0;}
-@media(max-width:599px){.bb-logo-link{display:none;}}
 .header-main{padding:14px 0 16px;text-align:center}
 .site-title{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--white);letter-spacing:1px;line-height:1.1}
 .site-title span{color:var(--gold)}
@@ -37,12 +36,12 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .stat-item{text-align:center}
 .stat-num{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:600;color:var(--gold);line-height:1}
 .stat-label{font-size:.6rem;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase}
-.category-wrap{background:var(--white);border-bottom:2px solid var(--border);padding:10px 12px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.category-wrap{background:var(--white);border-bottom:2px solid var(--border);padding:10px 12px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:sticky;top:var(--header-h,120px);z-index:90;box-shadow:0 2px 6px rgba(0,0,0,0.08)}
 .category-wrap::-webkit-scrollbar{display:none}
+.search-wrap{padding:12px 16px;background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:calc(var(--header-h,120px) + 51px);z-index:89}
 .chip{display:inline-block;padding:6px 14px;margin-right:6px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:var(--bg);color:var(--brown);white-space:nowrap;transition:all .2s}
 .chip:hover{border-color:var(--gold);color:var(--gold)}
 .chip.active{background:var(--gold);color:#fff;border-color:var(--gold)}
-.search-wrap{padding:12px 16px;background:var(--bg);border-bottom:1px solid var(--border)}
 .search-input{width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:6px;font-size:.9rem;font-family:'Open Sans',sans-serif;background:var(--white);color:var(--text);outline:none;transition:border-color .2s}
 .search-input:focus{border-color:var(--gold)}
 .section-title{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;color:var(--brown);padding:14px 16px 4px;letter-spacing:.5px;text-transform:uppercase}
@@ -337,6 +336,14 @@ function closeModal(e){if(e.target===document.getElementById('modalOverlay'))clo
 function closeModalBtn(){document.getElementById('modalIframe').src='';document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalBtn()});
 render();
+
+// Set --header-h CSS variable to actual sticky header height so filters stick correctly
+function setHeaderH(){
+  var h = document.querySelector('.site-header');
+  if(h) document.documentElement.style.setProperty('--header-h', h.offsetHeight + 'px');
+}
+setHeaderH();
+window.addEventListener('resize', setHeaderH);
 </script>
 </body>
 </html>
