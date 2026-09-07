@@ -286,7 +286,10 @@ const VIDEOS = [
   {rank:89,title:'Tanner Tomlinson and Travis Graves set a NFR Go-Round record!',channel:'Cowboy_Plus',views:3755,date:'2025-12-10',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:65.3,vid:'8fYl4JY80oU'},
   {rank:90,title:'Kaleb Driggers and Junior Nogueira are “pretty old but not dead yet.”',channel:'The Team Roping Journal',views:25925,date:'2024-12-14',category:'Event',skill:'Pro',role:'Both',eventType:'NFR',score:65.2,vid:'OZTA8_KlXhw'},
   {rank:91,title:'Tyler Wade & Treston Brazile w/ 5.86 sec run in Rd 1 CoJo Championship  #teamroping #roping #rodeo',channel:'Talk Rodeo To Me',views:5425,date:'2025-10-13',category:'Event',skill:'Pro',role:'Both',eventType:'Practice',score:65.0,vid:'VX9-NqVPHLo'},
-  {rank:92,title:'Relentless Remuda Equinety Barn Check',channel:'Equinety - Helping Horses Worldwide',views:91315,date:'2024-01-26',category:'Training',skill:'Intermediate',role:'Both',eventType:'Training',score:65.0,vid:'LkO0qFZJQuo'}
+  {rank:92,title:'Relentless Remuda Equinety Barn Check',channel:'Equinety - Helping Horses Worldwide',views:91315,date:'2024-01-26',category:'Training',skill:'Intermediate',role:'Both',eventType:'Training',score:65.0,vid:'LkO0qFZJQuo'},
+  {rank:93,title:'2026 Wrangler BFI | The Feist – Round 3',channel:'Bob Feist Invitational ',views:null,date:null,category:'Event',skill:'Pro',role:'Both',eventType:'MajorRoping',score:null,vid:'fK1ws-jg0Qc'},
+  {rank:94,title:'2026 Wrangler BFI | The Feist – Round 5',channel:'Bob Feist Invitational ',views:null,date:null,category:'Event',skill:'Pro',role:'Both',eventType:'MajorRoping',score:null,vid:'RsvM-QsrWS8'},
+  {rank:95,title:'2026 Wrangler BFI | The Feist – Short Go Round',channel:'Bob Feist Invitational ',views:null,date:null,category:'Event',skill:'Pro',role:'Both',eventType:'MajorRoping',score:null,vid:'b5kZUPvA6Gg'}
 ];
 let activeCat='All',searchTerm='';
 function fmtViews(n){if(n>=1000000)return(n/1000000).toFixed(1)+'M views';if(n>=1000)return Math.round(n/1000)+'K views';return n+' views'}
@@ -317,7 +320,7 @@ function render(){
           <span class="meta-tag tag-${v.category}">${v.category}</span>
           ${v.eventType!=='Practice'&&v.eventType!=='HorseTraining'?`<span class="meta-tag tag-${v.eventType}" style="background:#f5f5f5;color:#444">${v.eventType}</span>`:''}
         </div>
-        <div class="card-views">${fmtViews(v.views)} &middot; Score: ${v.score}</div>
+        <div class="card-views">${v.views!=null?fmtViews(v.views):'Views pending'}${v.score!=null?' &middot; Score: '+v.score:''}</div>
       </div>
     </div>`).join('');
 }
