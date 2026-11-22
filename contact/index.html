@@ -29,18 +29,21 @@
     .sponsor-bar{
       background:var(--leather-deeper);padding:6px 16px;
       display:flex;justify-content:space-between;align-items:center;gap:10px;
-      font-size:.72rem;color:rgba(255,251,245,.6);font-weight:500;
+      font-size:.75rem;color:rgba(255,251,245,.6);font-weight:500;
     }
     .sponsor-bar a{color:var(--rope-light);text-decoration:none;font-weight:700;}
     .sponsor-left{display:flex;align-items:center;gap:10px;}
     .contact-btn{
       display:inline-flex;align-items:center;gap:5px;
       background:var(--rust);color:#fff;border-radius:5px;
-      padding:5px 11px;font-size:.75rem;font-weight:600;
+      min-height:44px;padding:5px 14px;font-size:.75rem;font-weight:600;
       text-decoration:none;white-space:nowrap;transition:background .15s;
     }
     .contact-btn:hover{background:#9e4524;}
-    .bb-logo-link{display:flex;align-items:center;line-height:0;flex-shrink:0;}
+    .bb-logo-link{display:flex;align-items:center;line-height:0;flex-shrink:0;min-height:44px;}
+    .sponsor-left>div{display:none;}
+    @media(min-width:600px){.sponsor-left>div{display:block;}}
+    .sponsor-left>div a{display:inline-block;padding:15px 3px;margin:-15px 0;}
 
     /* ── SITE HEADER ── */
     .site-header{
@@ -57,22 +60,24 @@
     .page-hero p{font-size:1rem;opacity:.8;max-width:500px;margin:0 auto;}
 
     /* ── FORM ── */
-    .contact-wrap{max-width:660px;margin:48px auto 64px;padding:0 16px;}
+    .contact-wrap{max-width:660px;margin:24px auto 40px;padding:0 16px;}
+    @media(min-width:600px){.contact-wrap{margin:48px auto 64px;}}
     .info-strip{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;font-size:.84rem;color:var(--ink-muted);}
     .info-strip span{display:flex;align-items:center;gap:6px;}
-    .contact-card{background:var(--cream);border:1px solid var(--border-strong);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-md);}
+    .contact-card{background:var(--cream);border:1px solid var(--border-strong);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-md);}
+    @media(min-width:521px){.contact-card{padding:32px;}}
     .form-group{margin-bottom:20px;}
     .form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
     .form-group label .req{color:var(--rust);margin-left:2px;}
     .form-group input,.form-group select,.form-group textarea{
-      width:100%;padding:10px 12px;border:1px solid var(--border-strong);border-radius:6px;
+      width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--border-strong);border-radius:6px;
       font-size:16px;color:var(--ink);background:#fff;font-family:inherit;transition:border-color .2s;
     }
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{
       outline:none;border-color:var(--rope);box-shadow:0 0 0 3px rgba(196,162,101,.15);
     }
     .form-group textarea{resize:vertical;min-height:130px;}
-    .form-row{display:grid;grid-template-columns:1fr;gap:16px;}
+    .form-row{display:grid;grid-template-columns:1fr;column-gap:16px;row-gap:0;}
     @media(min-width:521px){.form-row{grid-template-columns:1fr 1fr;}}
     .submit-btn{
       width:100%;padding:13px;background:var(--leather-dark);color:#fff;
@@ -89,6 +94,10 @@
     footer{background:var(--leather-deeper);color:rgba(255,251,245,.55);text-align:center;padding:24px 16px;font-size:.82rem;}
     footer a{color:var(--rope-light);text-decoration:none;font-weight:600;}
     footer a:hover{color:#fff;}
+    footer>p>a{display:inline-block;padding:14px 4px;margin:-14px -4px;}
+    .footer-panel{padding:32px 16px;}
+    @media(min-width:600px){.footer-panel{padding:32px 40px;}}
+    .footer-panel a{display:inline-block;padding:11px 0;}
   </style>
 </head>
 <body>
@@ -133,16 +142,16 @@
       <div class="form-row">
         <div class="form-group">
           <label for="name">Name <span class="req">*</span></label>
-          <input type="text" id="name" placeholder="Your name" required>
+          <input type="text" id="name" placeholder="Your name" autocomplete="name" required>
         </div>
         <div class="form-group">
           <label for="phone">Phone</label>
-          <input type="tel" id="phone" placeholder="(555) 000-0000">
+          <input type="tel" id="phone" placeholder="(555) 000-0000" autocomplete="tel">
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email <span class="req">*</span></label>
-        <input type="email" id="email" placeholder="you@example.com" required>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email" required>
       </div>
       <div class="form-group">
         <label for="subject">Subject <span class="req">*</span></label>
@@ -162,7 +171,7 @@
         <textarea id="message" placeholder="Tell us how we can help — include a YouTube link if submitting a video…" required></textarea>
       </div>
       <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-      <div class="form-msg" id="formMsg"></div>
+      <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
     </form>
   </div>
 </div>
@@ -171,7 +180,7 @@
   <p>© 2026 TeamRopingVideos.com &nbsp;·&nbsp; A <a href="https://www.bridleandbit.com" target="_blank" rel="noopener">Bridle &amp; Bit Magazine</a> property</p>
 
   <div class="footer-panel" style="background:#1a1208;margin-top:24px;">
-    <p style="font-family:Georgia,serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9973a;margin:0 0 20px 0;text-align:center;">Roping &amp; Reining Resources</p>
+    <p style="font-family:Georgia,serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9973a;margin:0 0 20px 0;text-align:center;">Roping &amp; Reining Resources</p>
     <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;max-width:900px;margin:0 auto;">
       <div style="flex:1;min-width:220px;max-width:280px;"><a href="https://www.teamroping.ai" style="font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:#c9973a;text-decoration:none;">Team Roping AI</a><p style="font-family:Georgia,serif;font-size:0.82rem;color:#d4b896;margin:6px 0 0 0;line-height:1.6;">The most complete team roping event calendar with 270+ jackpots updated continuously across the United States.</p></div>
       <div style="flex:1;min-width:220px;max-width:280px;"><a href="https://www.reininghorses.ai" style="font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:#c9973a;text-decoration:none;">Reining Horses AI</a><p style="font-family:Georgia,serif;font-size:0.82rem;color:#d4b896;margin:6px 0 0 0;line-height:1.6;">Explore the Hall of Fame, champion profiles, and full history of the sport of reining.</p></div>
