@@ -54,7 +54,7 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .category-wrap::-webkit-scrollbar{display:none}
 .search-wrap{padding:8px 16px;background:var(--bg);border-bottom:1px solid var(--border)}
 @media(min-width:600px){.search-wrap{padding:12px 16px;position:sticky;top:calc(var(--header-h,120px) + 51px);z-index:89}}
-.chip{display:inline-flex;align-items:center;min-height:44px;padding:6px 16px;margin-right:6px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:var(--bg);color:var(--brown);white-space:nowrap;transition:all .2s}
+.chip{gap:5px;font-family:inherit;line-height:inherit;-webkit-appearance:none;appearance:none;display:inline-flex;align-items:center;min-height:44px;padding:6px 16px;margin-right:6px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:var(--bg);color:var(--brown);white-space:nowrap;transition:all .2s}
 .chip:hover{border-color:var(--gold);color:var(--gold)}
 .chip.active{background:var(--gold);color:#fff;border-color:var(--gold)}
 .search-input{display:block;max-width:1376px;margin:0 auto;width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:6px;font-size:16px;font-family:'Open Sans',sans-serif;background:var(--white);color:var(--text);outline:none;transition:border-color .2s}
@@ -143,26 +143,26 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="stat-item"><div class="stat-num">13</div><div class="stat-label">Categories</div></div>
   <div class="stat-item"><div class="stat-num">2026</div><div class="stat-label">Updated</div></div>
 </div>
-<div class="category-wrap">
-  <span class="chip active" onclick="filterCat('All',this)">All Videos</span>
-  <span class="chip" onclick="filterCat('Event',this)">🏆 Events</span>
-  <span class="chip" onclick="filterCat('Training',this)">🎯 Training</span>
-  <span class="chip" onclick="filterCat('Highlight',this)">⭐ Highlights</span>
-  <span class="chip" onclick="filterCat('Analysis',this)">📊 Analysis</span>
-  <span class="chip" onclick="filterCat('NFR',this)">🤠 NFR</span>
-  <span class="chip" onclick="filterCat('MajorRoping',this)">🏟 BFI / USTRC</span>
-  <span class="chip" onclick="filterCat('RanchoRio',this)">🌵 Rancho Rio</span>
-  <span class="chip" onclick="filterCat('Jackpot',this)">💰 Jackpots</span>
-  <span class="chip" onclick="filterCat('ProRodeo',this)">🐂 ProRodeo</span>
-  <span class="chip" onclick="filterCat('Header',this)">🔴 Headers</span>
-  <span class="chip" onclick="filterCat('Heeler',this)">🔵 Heelers</span>
-  <span class="chip" onclick="filterCat('Pro',this)">⚡ Pro Level</span>
-  <span class="chip" onclick="filterCat('Beginner',this)">🌱 Beginner</span>
+<div class="category-wrap" role="group" aria-label="Filter videos by category">
+  <button type="button" class="chip active" aria-pressed="true" onclick="filterCat('All',this)">All Videos</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Event',this)"><span aria-hidden="true">🏆</span> Events</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Training',this)"><span aria-hidden="true">🎯</span> Training</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Highlight',this)"><span aria-hidden="true">⭐</span> Highlights</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Analysis',this)"><span aria-hidden="true">📊</span> Analysis</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('NFR',this)"><span aria-hidden="true">🤠</span> NFR</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('MajorRoping',this)"><span aria-hidden="true">🏟</span> BFI / USTRC</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('RanchoRio',this)"><span aria-hidden="true">🌵</span> Rancho Rio</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Jackpot',this)"><span aria-hidden="true">💰</span> Jackpots</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('ProRodeo',this)"><span aria-hidden="true">🐂</span> ProRodeo</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Header',this)"><span aria-hidden="true">🔴</span> Headers</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Heeler',this)"><span aria-hidden="true">🔵</span> Heelers</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Pro',this)"><span aria-hidden="true">⚡</span> Pro Level</button>
+  <button type="button" class="chip" aria-pressed="false" onclick="filterCat('Beginner',this)"><span aria-hidden="true">🌱</span> Beginner</button>
 </div>
 <div class="search-wrap">
-  <input class="search-input" type="text" id="searchInput" placeholder="Search by roper, channel, event..." oninput="doSearch(this.value)">
+  <input class="search-input" type="text" id="searchInput" aria-label="Search videos by roper, channel or event" autocomplete="off" placeholder="Search by roper, channel, event..." oninput="doSearch(this.value)">
 </div>
-<div class="section-title" id="sectionTitle">Top Ranked Videos</div>
+<div class="section-title" id="sectionTitle" role="status" aria-live="polite">Top Ranked Videos</div>
 <div class="video-grid" id="videoGrid"></div>
 <div id="adHome"><div class="ad-zone ad-zone-mid" id="midAdZone" style="display:none"><ins data-revive-zoneid="31893" data-revive-id="727bec5e09208690b050ccfc6a45d384"></ins></div></div>
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)" role="dialog" aria-modal="true" aria-label="Video player">
@@ -456,8 +456,9 @@ const VIDEOS = [
 let activeCat='All',searchTerm='';
 function fmtViews(n){if(n>=1000000)return(n/1000000).toFixed(1)+'M views';if(n>=1000)return Math.round(n/1000)+'K views';return n+' views'}
 function thumb(vid){return'https://img.youtube.com/vi/'+vid+'/mqdefault.jpg'}
-function filterCat(cat,el){activeCat=cat;searchTerm='';document.getElementById('searchInput').value='';document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');render()}
-function doSearch(val){searchTerm=val.toLowerCase();activeCat='All';document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));document.querySelector('.chip').classList.add('active');render()}
+function setActiveChip(el){document.querySelectorAll('.chip').forEach(c=>{const on=c===el;c.classList.toggle('active',on);c.setAttribute('aria-pressed',on?'true':'false')})}
+function filterCat(cat,el){activeCat=cat;searchTerm='';document.getElementById('searchInput').value='';setActiveChip(el);render()}
+function doSearch(val){searchTerm=val.toLowerCase();activeCat='All';setActiveChip(document.querySelector('.chip'));render()}
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
 function render(){
   const grid=document.getElementById('videoGrid');
