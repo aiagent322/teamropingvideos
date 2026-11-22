@@ -26,7 +26,7 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .site-header{background:var(--header-bg);padding:0 16px;border-bottom:3px solid var(--gold);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
 @media(min-width:600px){.site-header{position:sticky;top:0;z-index:100}}
 .header-top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 6px;border-bottom:1px solid rgba(200,146,42,0.25)}
-.sponsor-tag{font-size:.65rem;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase}
+.sponsor-tag{font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase}
 .sponsor-tag a{color:var(--gold);text-decoration:none;display:inline-block;padding:15px 3px;margin:-15px 0}
 .bb-logo-link{display:flex;align-items:center;line-height:0;min-height:44px}
 .header-main{padding:14px 0 16px;text-align:center}
@@ -42,7 +42,7 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .stats-bar{background:var(--brown);display:flex;justify-content:center;gap:32px;padding:10px 16px}
 .stat-item{text-align:center}
 .stat-num{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:600;color:var(--gold);line-height:1}
-.stat-label{font-size:.6rem;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase}
+.stat-label{font-size:.75rem;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase}
 .category-wrap{background:var(--white);border-bottom:2px solid var(--border);padding:6px 12px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:sticky;top:0;z-index:90;box-shadow:0 2px 6px rgba(0,0,0,0.08)}
 @media(min-width:600px){.category-wrap{top:var(--header-h,120px)}}
 .category-wrap::-webkit-scrollbar{display:none}
@@ -65,13 +65,13 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .video-card:hover .play-overlay{opacity:1}
 .play-btn{width:40px;height:40px;background:rgba(200,146,42,.92);border-radius:50%;display:flex;align-items:center;justify-content:center}
 .play-btn::after{content:'';border-style:solid;border-width:7px 0 7px 14px;border-color:transparent transparent transparent #fff;margin-left:3px}
-.rank-badge{position:absolute;top:6px;left:6px;background:var(--gold);color:#fff;font-family:'Oswald',sans-serif;font-size:.7rem;font-weight:600;padding:2px 7px;border-radius:3px;line-height:1.4}
+.rank-badge{position:absolute;top:6px;left:6px;background:var(--gold);color:#fff;font-family:'Oswald',sans-serif;font-size:.8rem;font-weight:600;padding:2px 7px;border-radius:3px;line-height:1.4}
 .rank-badge.top3{background:var(--red)}
 .card-body{padding:8px 10px 10px;flex:1;display:flex;flex-direction:column;gap:4px}
 .card-title{font-size:.78rem;font-weight:600;line-height:1.35;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-channel{font-size:.68rem;color:var(--muted)}
+.card-channel{font-size:.78rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
 .card-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
-.meta-tag{font-size:.6rem;padding:2px 6px;border-radius:3px;font-weight:600;letter-spacing:.3px}
+.meta-tag{font-size:.75rem;padding:2px 7px;border-radius:3px;font-weight:600;letter-spacing:.3px}
 .tag-Highlight{background:#e8f5e9;color:#2e7d32}
 .tag-Training{background:#e3f0ff;color:#1565c0}
 .tag-Event{background:#fce8e8;color:#c62828}
@@ -79,7 +79,7 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .tag-RanchoRio{background:#f3e5f5;color:#6a1b9a}
 .tag-NFR{background:#fff3e0;color:#e65100}
 .tag-MajorRoping{background:#e8eaf6;color:#283593}
-.card-views{font-size:.68rem;color:var(--muted);margin-top:auto;padding-top:4px}
+.card-views{font-size:.78rem;color:var(--muted);margin-top:auto;padding-top:4px}
 .no-results{text-align:center;padding:48px 24px;color:var(--muted);font-size:.9rem;grid-column:1/-1}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;align-items:center;justify-content:center;padding:16px}
 .modal-overlay.open{display:flex}
@@ -99,7 +99,7 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .modal-video{flex:0 0 62%;align-self:flex-start;padding-top:0;aspect-ratio:16/9}
 .modal-info{flex:1 1 auto;min-width:0;overflow-y:auto;max-height:calc(100dvh - 32px);padding-right:64px}
 }
-footer{background:var(--header-bg);color:rgba(255,255,255,.5);text-align:center;padding:24px 16px;font-size:.72rem;line-height:1.8;border-top:3px solid var(--gold);margin-top:24px}
+footer{background:var(--header-bg);color:rgba(255,255,255,.5);text-align:center;padding:24px 16px;font-size:.8rem;line-height:1.8;border-top:3px solid var(--gold);margin-top:24px}
 footer a{color:var(--gold);text-decoration:none}
 .footer-links{display:flex;justify-content:center;flex-wrap:wrap;column-gap:20px;row-gap:0;margin-bottom:12px}
 .footer-links a{display:inline-flex;align-items:center;min-height:44px}
@@ -181,7 +181,7 @@ footer a{color:var(--gold);text-decoration:none}
   <div style="text-align:center;margin-top:16px;padding-bottom:4px;"><a href="https://www.bridleandbit.com/network/" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 28px;background:#c9973a;color:#1a1208;font-family:Georgia,serif;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;">The Bridle &amp; Bit Network</a></div>
 
   <div class="footer-panel" style="background:#1a1208;margin-top:24px;">
-    <p style="font-family:Georgia,serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9973a;margin:0 0 20px 0;text-align:center;">Roping &amp; Reining Resources</p>
+    <p style="font-family:Georgia,serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9973a;margin:0 0 20px 0;text-align:center;">Roping &amp; Reining Resources</p>
     <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;max-width:900px;margin:0 auto;">
       <div style="flex:1;min-width:220px;max-width:280px;">
         <a href="https://www.teamroping.ai" style="font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:#c9973a;text-decoration:none;">Team Roping AI</a>
@@ -203,7 +203,7 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 
   <div class="footer-panel" style="background:#1a1208;margin-top:24px;">
-    <p style="font-family:Georgia,serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9973a;margin:0 0 20px 0;text-align:center;">Equestrian Entertainment</p>
+    <p style="font-family:Georgia,serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9973a;margin:0 0 20px 0;text-align:center;">Equestrian Entertainment</p>
     <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;max-width:900px;margin:0 auto;">
       <div style="flex:1;min-width:220px;max-width:280px;">
         <a href="https://www.worldsgreatesthorseman.com" style="font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:#c9973a;text-decoration:none;">World's Greatest Horseman</a>
