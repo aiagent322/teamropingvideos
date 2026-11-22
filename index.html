@@ -39,8 +39,11 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 @media(min-width:600px){.footer-panel{padding:32px 40px}}
 .ad-zone-mid{grid-column:1/-1}
 .ad-zone{display:flex;justify-content:center;padding:8px 16px;background:var(--bg)}
-.ad-zone ins{display:block;width:100%;max-width:610px;aspect-ratio:610/154;text-decoration:none}
-.ad-zone ins img,.ad-zone ins iframe{max-width:100%;height:auto}
+.ad-zone ins{display:block;width:100%;max-width:610px;aspect-ratio:610/154;overflow:hidden;text-decoration:none}
+.ad-zone ins>a{display:block;width:100%;height:100%}
+.ad-zone ins>a>img{display:block;width:100%;height:100%;object-fit:contain}
+.ad-zone ins iframe{display:block;max-width:100%}
+.ad-zone.ad-empty{display:none!important}
 .stats-bar{background:var(--brown);display:flex;justify-content:center;gap:32px;padding:6px 16px}
 @media(min-width:600px){.stats-bar{padding:10px 16px}}
 .stat-item{text-align:center}
@@ -505,6 +508,16 @@ function setHeaderH(){
   if(h) document.documentElement.style.setProperty('--header-h', h.offsetHeight + 'px');
 }
 setHeaderH();
+// Revive zones: space is reserved (610:154) so a delivered ad never shifts the page; if a zone stays empty, collapse it so no blank band is left.
+(function(){
+  function filled(z){return !!z.querySelector('ins a, ins iframe')}
+  function check(z){z.classList.toggle('ad-empty',!filled(z))}
+  document.querySelectorAll('.ad-zone').forEach(function(z){
+    new MutationObserver(function(){if(filled(z))z.classList.remove('ad-empty')}).observe(z,{childList:true,subtree:true});
+  });
+  window.addEventListener('load',function(){setTimeout(function(){document.querySelectorAll('.ad-zone').forEach(check)},4000)});
+})();
+
 window.addEventListener('resize', setHeaderH);
 </script>
 </body>
