@@ -32,6 +32,7 @@ body{background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;f
 .site-title{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--white);letter-spacing:1px;line-height:1.1}
 .site-title span{color:var(--gold)}
 .site-tagline{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:4px;letter-spacing:.5px}
+.ad-zone-mid{grid-column:1/-1}
 .ad-zone{display:flex;justify-content:center;padding:12px 16px;background:var(--bg)}
 .ad-zone ins{display:block;width:100%;max-width:610px;aspect-ratio:610/154;text-decoration:none}
 .ad-zone ins img,.ad-zone ins iframe{max-width:100%;height:auto}
@@ -140,6 +141,7 @@ footer a{color:var(--gold);text-decoration:none}
 </div>
 <div class="section-title" id="sectionTitle">Top Ranked Videos</div>
 <div class="video-grid" id="videoGrid"></div>
+<div id="adHome"><div class="ad-zone ad-zone-mid" id="midAdZone" style="display:none"><ins data-revive-zoneid="31893" data-revive-id="727bec5e09208690b050ccfc6a45d384"></ins></div></div>
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModalBtn()">&#x2715;</button>
@@ -436,6 +438,7 @@ function doSearch(val){searchTerm=val.toLowerCase();activeCat='All';document.que
 function render(){
   const grid=document.getElementById('videoGrid');
   const title=document.getElementById('sectionTitle');
+  const midAd=document.getElementById('midAdZone');midAd.style.display='none';document.getElementById('adHome').appendChild(midAd);
   let filtered=VIDEOS.filter(v=>{
     const matchCat=activeCat==='All'||activeCat===v.category||activeCat===v.eventType||activeCat===v.role||activeCat===v.skill;
     const matchSearch=!searchTerm||v.title.toLowerCase().includes(searchTerm)||v.channel.toLowerCase().includes(searchTerm);
@@ -460,6 +463,9 @@ function render(){
         <div class="card-views">${v.views!=null?fmtViews(v.views):'Views pending'}${v.score!=null?' &middot; Score: '+v.score:''}</div>
       </div>
     </div>`).join('');
+  // mid-page Revive zone: middle of inventory, on a row boundary (multiple of 12 fits 2/3/4 columns); skipped on short lists so it never touches the footer zone
+  const midIdx=Math.floor(filtered.length/2/12)*12;
+  if(midIdx>=12){grid.insertBefore(midAd,grid.children[midIdx]);midAd.style.display='flex'}
 }
 function openModal(vid,title,channel,category,eventType){
   document.getElementById('modalIframe').src='https://www.youtube.com/embed/'+vid+'?autoplay=1';
